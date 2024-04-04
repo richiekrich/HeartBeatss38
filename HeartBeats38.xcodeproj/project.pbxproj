@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40A4B91B2BBF6119000E1B85 /* Heart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 40A4B91A2BBF6119000E1B85 /* Heart.mp3 */; };
+		40A4B91D2BBF6384000E1B85 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A4B91C2BBF6384000E1B85 /* AudioPlayerManager.swift */; };
 		E0FF491B2BBF4C1200B0F470 /* HeartBeats38App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */; };
 		E0FF491D2BBF4C1200B0F470 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF491C2BBF4C1200B0F470 /* ContentView.swift */; };
 		E0FF491F2BBF4C1200B0F470 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF491E2BBF4C1200B0F470 /* Item.swift */; };
@@ -80,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		40A4B91A2BBF6119000E1B85 /* Heart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Heart.mp3; path = ../../../Downloads/Heart.mp3; sourceTree = "<group>"; };
+		40A4B91C2BBF6384000E1B85 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		E0FF49172BBF4C1200B0F470 /* HeartBeats38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeats38.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeats38App.swift; sourceTree = "<group>"; };
 		E0FF491C2BBF4C1200B0F470 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -185,10 +189,12 @@
 				E0FF49462BBF4CC000B0F470 /* HeartBeats38.entitlements */,
 				E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */,
 				E0FF491C2BBF4C1200B0F470 /* ContentView.swift */,
-				E0FF491E2BBF4C1200B0F470 /* Item.swift */,
-				E0FF49202BBF4C1300B0F470 /* Assets.xcassets */,
-				E0FF49222BBF4C1300B0F470 /* Preview Content */,
 				E0FF497C2BBF4D7F00B0F470 /* HeartRateViewModel.swift */,
+				E0FF491E2BBF4C1200B0F470 /* Item.swift */,
+				40A4B91C2BBF6384000E1B85 /* AudioPlayerManager.swift */,
+				E0FF49202BBF4C1300B0F470 /* Assets.xcassets */,
+				40A4B91A2BBF6119000E1B85 /* Heart.mp3 */,
+				E0FF49222BBF4C1300B0F470 /* Preview Content */,
 			);
 			path = HeartBeats38;
 			sourceTree = "<group>";
@@ -429,6 +435,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40A4B91B2BBF6119000E1B85 /* Heart.mp3 in Resources */,
 				E0FF49242BBF4C1300B0F470 /* Preview Assets.xcassets in Resources */,
 				E0FF49212BBF4C1300B0F470 /* Assets.xcassets in Resources */,
 			);
@@ -479,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0FF491D2BBF4C1200B0F470 /* ContentView.swift in Sources */,
+				40A4B91D2BBF6384000E1B85 /* AudioPlayerManager.swift in Sources */,
 				E0FF491F2BBF4C1200B0F470 /* Item.swift in Sources */,
 				E0FF491B2BBF4C1200B0F470 /* HeartBeats38App.swift in Sources */,
 				E0FF497D2BBF4D7F00B0F470 /* HeartRateViewModel.swift in Sources */,
@@ -697,6 +705,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -728,6 +737,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
