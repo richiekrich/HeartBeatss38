@@ -9,6 +9,44 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>HeartBeatsW Watch App.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>E0FF49162BBF4C1100B0F470</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0FF49282BBF4C1300B0F470</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0FF49322BBF4C1300B0F470</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0FF494A2BBF4CD900B0F470</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0FF49592BBF4CDC00B0F470</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0FF49632BBF4CDC00B0F470</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
