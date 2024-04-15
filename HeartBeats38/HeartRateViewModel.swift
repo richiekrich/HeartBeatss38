@@ -1,50 +1,28 @@
-//
-//  HeartRateViewModel.swift
-//  HeartBeats
-//
-//  Created by Ernesto Diaz on 4/3/24.
-//
-
 import Foundation
-import WatchConnectivity
+import Combine
 
-class HeartRateViewModel: NSObject, ObservableObject, WCSessionDelegate {
-    @Published var heartRate: Double = 0.0
+class HeartRateViewModel: ObservableObject {
+    @Published var heartRate: Double = 60.0  // Starting heart rate
+    @Published var isWorkoutActive: Bool = false
+    var timer: Timer?
 
-    override init() {
-        super.init()
-        if WCSession.isSupported() {
-            let session = WCSession.default
-            session.delegate = self
-            session.activate()
+    // Start simulating a workout heart rate
+    func startHeartRateSimulation() {
+        isWorkoutActive = true
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            // Simulate heart rate increase or decrease
+            let fluctuation = Double.random(in: -5...15) // Adjust range based on desired simulation detail
+            let newRate = self.heartRate + fluctuation
+            // Keep the simulated heart rate within a typical workout range
+            self.heartRate = min(max(newRate, 100), 180)
         }
     }
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        // Handle session activation completion
-        if let error = error {
-            print("WCSession activation failed with error: \(error.localizedDescription)")
-            return
-        }
-        print("WCSession activated with state: \(activationState.rawValue)")
-    }
-
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        // Handle session inactivity
-        print("WCSession did become inactive")
-    }
-
-    func sessionDidDeactivate(_ session: WCSession) {
-        // Reactivate the session
-        session.activate()
-        print("WCSession reactivated")
-    }
-
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        DispatchQueue.main.async { [weak self] in
-            if let heartRate = message["heartRate"] as? Double {
-                self?.heartRate = heartRate
-            }
-        }
+    // Stop the heart rate simulation
+    func stopHeartRateSimulation() {
+        isWorkoutActive = false
+        timer?.invalidate()
+        timer = nil
     }
 }
