@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40A4B91D2BBF6384000E1B85 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A4B91C2BBF6384000E1B85 /* AudioPlayerManager.swift */; };
-		E00D7B3C2BCD0A8A0027318C /* Heart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00D7B3B2BCD0A8A0027318C /* Heart.mp3 */; };
-		E00D7B442BCD282E0027318C /* heartbeat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E00D7B432BCD282E0027318C /* heartbeat.mp4 */; };
+		E029E9DF2BD11BE80097F460 /* Heart Runner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E029E9DE2BD11BE80097F460 /* Heart Runner.mp3 */; };
 		E0FF491B2BBF4C1200B0F470 /* HeartBeats38App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */; };
 		E0FF491D2BBF4C1200B0F470 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF491C2BBF4C1200B0F470 /* ContentView.swift */; };
 		E0FF491F2BBF4C1200B0F470 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF491E2BBF4C1200B0F470 /* Item.swift */; };
@@ -84,9 +83,8 @@
 
 /* Begin PBXFileReference section */
 		40A4B91C2BBF6384000E1B85 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
-		E00D7B3B2BCD0A8A0027318C /* Heart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Heart.mp3; sourceTree = "<group>"; };
-		E00D7B432BCD282E0027318C /* heartbeat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = heartbeat.mp4; sourceTree = "<group>"; };
 		E00D7B4B2BCD391D0027318C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E029E9DE2BD11BE80097F460 /* Heart Runner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Heart Runner.mp3"; sourceTree = "<group>"; };
 		E0FF49172BBF4C1200B0F470 /* HeartBeats38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeats38.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeats38App.swift; sourceTree = "<group>"; };
 		E0FF491C2BBF4C1200B0F470 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -189,9 +187,8 @@
 		E0FF49192BBF4C1200B0F470 /* HeartBeats38 */ = {
 			isa = PBXGroup;
 			children = (
+				E029E9DE2BD11BE80097F460 /* Heart Runner.mp3 */,
 				E00D7B4B2BCD391D0027318C /* Info.plist */,
-				E00D7B432BCD282E0027318C /* heartbeat.mp4 */,
-				E00D7B3B2BCD0A8A0027318C /* Heart.mp3 */,
 				E0FF49462BBF4CC000B0F470 /* HeartBeats38.entitlements */,
 				E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */,
 				E0FF491C2BBF4C1200B0F470 /* ContentView.swift */,
@@ -440,10 +437,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E00D7B442BCD282E0027318C /* heartbeat.mp4 in Resources */,
 				E0FF49242BBF4C1300B0F470 /* Preview Assets.xcassets in Resources */,
+				E029E9DF2BD11BE80097F460 /* Heart Runner.mp3 in Resources */,
 				E0FF49212BBF4C1300B0F470 /* Assets.xcassets in Resources */,
-				E00D7B3C2BCD0A8A0027318C /* Heart.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +695,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeats38/HeartBeats38.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -709,7 +706,7 @@
 				INFOPLIST_FILE = HeartBeats38/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = heartlogo;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -732,6 +729,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeats38/HeartBeats38.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -742,7 +740,7 @@
 				INFOPLIST_FILE = HeartBeats38/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = heartlogo;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

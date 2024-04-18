@@ -7,6 +7,9 @@ struct ContentView: View {
     @State private var statusMessage = ""
     @State private var isWorkoutActive = false
     @State private var isAudioPlaying = false
+    @State private var countdown = 3
+    @State private var showCountdown = false
+    @State private var buttonOpacity = 1.0
 
     var body: some View {
         ZStack {
@@ -18,40 +21,31 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .padding()
                 
-                Button("Start Workout") {
-                    viewModel.startHeartRateSimulation()
-                    statusMessage = "Workout started."
-                    audioPlayerManager.play()
-                    isWorkoutActive = true
+                if showCountdown {
+                    Text("Workout starting in... \(countdown)")
+                        .foregroundColor(.white)
+                        .font(.title)
+                        .transition(.scale)
                 }
-                .disabled(viewModel.isWorkoutActive)
-                .buttonStyle(PrimaryButtonStyle(isDisabled: viewModel.isWorkoutActive, backgroundColor: .gray, textColor: isWorkoutActive ? .gray : .white))
+       
+                if !isWorkoutActive {
+                    Button(action: startWorkout) {
+                        Image("heartPlay")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .opacity(buttonOpacity)
+                        }
+                }
                 
-                Button("Stop Workout") {
-                    viewModel.stopHeartRateSimulation()
-                    statusMessage = "Workout stopped."
-                    audioPlayerManager.stop()
-                    isWorkoutActive = false
-                    isAudioPlaying = false
+                if isWorkoutActive{
+                    Button(action: stopWorkout) {
+                        Image("heartStop")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                    }
                 }
-                .disabled(!viewModel.isWorkoutActive)
-                .buttonStyle(PrimaryButtonStyle(isDisabled: !viewModel.isWorkoutActive, backgroundColor: .red, textColor: !isWorkoutActive ? .red : .white))
-                
-                Button("Play") {
-                    audioPlayerManager.play()
-                    statusMessage = "Playing audio."
-                    isAudioPlaying = true
-                }
-                .disabled(audioPlayerManager.isPlaying)
-                .buttonStyle(PrimaryButtonStyle(isDisabled: viewModel.isWorkoutActive, backgroundColor: .gray, textColor: isAudioPlaying ? .gray : .white))
-                
-                Button("Stop") {
-                    audioPlayerManager.stop()
-                    statusMessage = "Audio stopped."
-                    isAudioPlaying = false
-                }
-                .disabled(!audioPlayerManager.isPlaying)
-                .buttonStyle(PrimaryButtonStyle(isDisabled: !isAudioPlaying, backgroundColor: .red, textColor: isAudioPlaying ? .white : .red))
                 
                 Button("Restart Workout") {
                     viewModel.restartWorkout()
@@ -66,6 +60,37 @@ struct ContentView: View {
             }
         }
     }
+    
+  
+    func startWorkout() {
+        showCountdown = true
+        countdown = 3
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            if countdown > 0 {
+                countdown -= 1
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    buttonOpacity = 0.1
+                }
+                withAnimation(.easeInOut(duration: 0.5).delay(0.5)) {
+                    buttonOpacity = 1.0
+                }
+            } else {
+                timer.invalidate()
+                showCountdown = false
+                viewModel.startHeartRateSimulation()
+                statusMessage = "Workout started."
+                audioPlayerManager.play()
+                isWorkoutActive = true
+            }
+        }
+    }
+    func stopWorkout() {
+          viewModel.stopHeartRateSimulation()
+          statusMessage = "Workout stopped."
+          audioPlayerManager.stop()
+          isWorkoutActive = false
+          isAudioPlaying = false
+      }
 }
 
 struct PrimaryButtonStyle: ButtonStyle {
@@ -82,3 +107,4 @@ struct PrimaryButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
     }
 }
+
