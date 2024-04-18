@@ -11,7 +11,7 @@ class AudioPlayerManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
 
     func loadAudioFile() {
-        if let path = Bundle.main.path(forResource: "Heart Runner", ofType: "mp3") {
+        if let path = Bundle.main.path(forResource: "tyler dance VI_2", ofType: "mp3") {
             do {
                 let url = URL(fileURLWithPath: path)
                 audioPlayer = try AVAudioPlayer(contentsOf: url)

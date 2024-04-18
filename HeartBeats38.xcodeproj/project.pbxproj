@@ -7,8 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		167BD6492BD1AA420056A974 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6482BD1AA420056A974 /* HomeView.swift */; };
+		167BD64B2BD1AEF10056A974 /* SavedWorkouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD64A2BD1AEF10056A974 /* SavedWorkouts.swift */; };
+		167BD64D2BD1AF140056A974 /* heartsplash.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 167BD64C2BD1AF140056A974 /* heartsplash.mp4 */; };
+		167BD64F2BD1AFAD0056A974 /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD64E2BD1AFAD0056A974 /* VideoSplashViewController.swift */; };
+		167BD6512BD1B2920056A974 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6502BD1B2920056A974 /* VideoPlayerView.swift */; };
+		167BD6532BD1B3990056A974 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6522BD1B3990056A974 /* PlayerViewModel.swift */; };
+		167BD6572BD1B8B70056A974 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6562BD1B8B70056A974 /* Workout.swift */; };
+		167BD6592BD1B8E20056A974 /* WorkoutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6582BD1B8E20056A974 /* WorkoutsViewModel.swift */; };
+		167BD65B2BD1BE030056A974 /* tyler dance VI_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 167BD65A2BD1BE030056A974 /* tyler dance VI_2.mp3 */; };
+		167BD65F2BD1C0420056A974 /* AudioFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD65E2BD1C0420056A974 /* AudioFileManager.swift */; };
+		167BD6612BD1C0630056A974 /* AudioFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6602BD1C0630056A974 /* AudioFilesView.swift */; };
+		167BD6632BD1C8930056A974 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6622BD1C8930056A974 /* AudioTrack.swift */; };
+		167BD6652BD1C8BF0056A974 /* yves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 167BD6642BD1C8BF0056A974 /* yves.mp3 */; };
 		40A4B91D2BBF6384000E1B85 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A4B91C2BBF6384000E1B85 /* AudioPlayerManager.swift */; };
-		E029E9DF2BD11BE80097F460 /* Heart Runner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E029E9DE2BD11BE80097F460 /* Heart Runner.mp3 */; };
 		E0FF491B2BBF4C1200B0F470 /* HeartBeats38App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */; };
 		E0FF491D2BBF4C1200B0F470 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF491C2BBF4C1200B0F470 /* ContentView.swift */; };
 		E0FF491F2BBF4C1200B0F470 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF491E2BBF4C1200B0F470 /* Item.swift */; };
@@ -82,9 +94,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		167BD6482BD1AA420056A974 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		167BD64A2BD1AEF10056A974 /* SavedWorkouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedWorkouts.swift; sourceTree = "<group>"; };
+		167BD64C2BD1AF140056A974 /* heartsplash.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = heartsplash.mp4; sourceTree = "<group>"; };
+		167BD64E2BD1AFAD0056A974 /* VideoSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSplashViewController.swift; sourceTree = "<group>"; };
+		167BD6502BD1B2920056A974 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		167BD6522BD1B3990056A974 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		167BD6562BD1B8B70056A974 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		167BD6582BD1B8E20056A974 /* WorkoutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewModel.swift; sourceTree = "<group>"; };
+		167BD65A2BD1BE030056A974 /* tyler dance VI_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tyler dance VI_2.mp3"; sourceTree = "<group>"; };
+		167BD65E2BD1C0420056A974 /* AudioFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileManager.swift; sourceTree = "<group>"; };
+		167BD6602BD1C0630056A974 /* AudioFilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFilesView.swift; sourceTree = "<group>"; };
+		167BD6622BD1C8930056A974 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
+		167BD6642BD1C8BF0056A974 /* yves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yves.mp3; sourceTree = "<group>"; };
 		40A4B91C2BBF6384000E1B85 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		E00D7B4B2BCD391D0027318C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E029E9DE2BD11BE80097F460 /* Heart Runner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Heart Runner.mp3"; sourceTree = "<group>"; };
 		E0FF49172BBF4C1200B0F470 /* HeartBeats38.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeats38.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeats38App.swift; sourceTree = "<group>"; };
 		E0FF491C2BBF4C1200B0F470 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -187,7 +211,9 @@
 		E0FF49192BBF4C1200B0F470 /* HeartBeats38 */ = {
 			isa = PBXGroup;
 			children = (
-				E029E9DE2BD11BE80097F460 /* Heart Runner.mp3 */,
+				167BD6642BD1C8BF0056A974 /* yves.mp3 */,
+				167BD65A2BD1BE030056A974 /* tyler dance VI_2.mp3 */,
+				167BD64C2BD1AF140056A974 /* heartsplash.mp4 */,
 				E00D7B4B2BCD391D0027318C /* Info.plist */,
 				E0FF49462BBF4CC000B0F470 /* HeartBeats38.entitlements */,
 				E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */,
@@ -197,6 +223,16 @@
 				40A4B91C2BBF6384000E1B85 /* AudioPlayerManager.swift */,
 				E0FF49202BBF4C1300B0F470 /* Assets.xcassets */,
 				E0FF49222BBF4C1300B0F470 /* Preview Content */,
+				167BD6482BD1AA420056A974 /* HomeView.swift */,
+				167BD64A2BD1AEF10056A974 /* SavedWorkouts.swift */,
+				167BD64E2BD1AFAD0056A974 /* VideoSplashViewController.swift */,
+				167BD6502BD1B2920056A974 /* VideoPlayerView.swift */,
+				167BD6522BD1B3990056A974 /* PlayerViewModel.swift */,
+				167BD6562BD1B8B70056A974 /* Workout.swift */,
+				167BD6582BD1B8E20056A974 /* WorkoutsViewModel.swift */,
+				167BD65E2BD1C0420056A974 /* AudioFileManager.swift */,
+				167BD6602BD1C0630056A974 /* AudioFilesView.swift */,
+				167BD6622BD1C8930056A974 /* AudioTrack.swift */,
 			);
 			path = HeartBeats38;
 			sourceTree = "<group>";
@@ -438,7 +474,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0FF49242BBF4C1300B0F470 /* Preview Assets.xcassets in Resources */,
-				E029E9DF2BD11BE80097F460 /* Heart Runner.mp3 in Resources */,
+				167BD6652BD1C8BF0056A974 /* yves.mp3 in Resources */,
+				167BD65B2BD1BE030056A974 /* tyler dance VI_2.mp3 in Resources */,
+				167BD64D2BD1AF140056A974 /* heartsplash.mp4 in Resources */,
 				E0FF49212BBF4C1300B0F470 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,8 +526,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0FF491D2BBF4C1200B0F470 /* ContentView.swift in Sources */,
+				167BD6532BD1B3990056A974 /* PlayerViewModel.swift in Sources */,
+				167BD6612BD1C0630056A974 /* AudioFilesView.swift in Sources */,
+				167BD64B2BD1AEF10056A974 /* SavedWorkouts.swift in Sources */,
 				40A4B91D2BBF6384000E1B85 /* AudioPlayerManager.swift in Sources */,
+				167BD64F2BD1AFAD0056A974 /* VideoSplashViewController.swift in Sources */,
 				E0FF491F2BBF4C1200B0F470 /* Item.swift in Sources */,
+				167BD65F2BD1C0420056A974 /* AudioFileManager.swift in Sources */,
+				167BD6572BD1B8B70056A974 /* Workout.swift in Sources */,
+				167BD6512BD1B2920056A974 /* VideoPlayerView.swift in Sources */,
+				167BD6592BD1B8E20056A974 /* WorkoutsViewModel.swift in Sources */,
+				167BD6632BD1C8930056A974 /* AudioTrack.swift in Sources */,
+				167BD6492BD1AA420056A974 /* HomeView.swift in Sources */,
 				E0FF491B2BBF4C1200B0F470 /* HeartBeats38App.swift in Sources */,
 				E0FF497D2BBF4D7F00B0F470 /* HeartRateViewModel.swift in Sources */,
 			);

@@ -10,12 +10,13 @@ import SwiftData
 
 @main
 struct HeartBeats38App: App {
+    @StateObject private var playerViewModel = PlayerViewModel()
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
@@ -25,7 +26,12 @@ struct HeartBeats38App: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if playerViewModel.videoCompleted {
+                HomeView()
+            } else {
+                VideoPlayerView()
+                    .environmentObject(playerViewModel)
+            }
         }
         .modelContainer(sharedModelContainer)
     }
