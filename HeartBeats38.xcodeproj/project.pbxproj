@@ -29,16 +29,7 @@
 		E0FF492E2BBF4C1300B0F470 /* HeartBeats38Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF492D2BBF4C1300B0F470 /* HeartBeats38Tests.swift */; };
 		E0FF49382BBF4C1300B0F470 /* HeartBeats38UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF49372BBF4C1300B0F470 /* HeartBeats38UITests.swift */; };
 		E0FF493A2BBF4C1300B0F470 /* HeartBeats38UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF49392BBF4C1300B0F470 /* HeartBeats38UITestsLaunchTests.swift */; };
-		E0FF494E2BBF4CDA00B0F470 /* HeartBeatsWApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF494D2BBF4CDA00B0F470 /* HeartBeatsWApp.swift */; };
-		E0FF49502BBF4CDA00B0F470 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF494F2BBF4CDA00B0F470 /* ContentView.swift */; };
-		E0FF49522BBF4CDC00B0F470 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FF49512BBF4CDC00B0F470 /* Assets.xcassets */; };
-		E0FF49552BBF4CDC00B0F470 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FF49542BBF4CDC00B0F470 /* Preview Assets.xcassets */; };
-		E0FF495F2BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF495E2BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppTests.swift */; };
-		E0FF49692BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF49682BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppUITests.swift */; };
-		E0FF496B2BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF496A2BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppUITestsLaunchTests.swift */; };
-		E0FF496E2BBF4CDC00B0F470 /* HeartBeatsW Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E0FF494B2BBF4CD900B0F470 /* HeartBeatsW Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E0FF497D2BBF4D7F00B0F470 /* HeartRateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF497C2BBF4D7F00B0F470 /* HeartRateViewModel.swift */; };
-		E0FF497F2BBF4DC400B0F470 /* HeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF497E2BBF4DC400B0F470 /* HeartRateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,27 +47,6 @@
 			remoteGlobalIDString = E0FF49162BBF4C1100B0F470;
 			remoteInfo = HeartBeats38;
 		};
-		E0FF495B2BBF4CDC00B0F470 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E0FF490F2BBF4C1100B0F470 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E0FF494A2BBF4CD900B0F470;
-			remoteInfo = "HeartBeatsW Watch App";
-		};
-		E0FF49652BBF4CDC00B0F470 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E0FF490F2BBF4C1100B0F470 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E0FF494A2BBF4CD900B0F470;
-			remoteInfo = "HeartBeatsW Watch App";
-		};
-		E0FF496C2BBF4CDC00B0F470 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E0FF490F2BBF4C1100B0F470 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E0FF494A2BBF4CD900B0F470;
-			remoteInfo = "HeartBeatsW Watch App";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -86,7 +56,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				E0FF496E2BBF4CDC00B0F470 /* HeartBeatsW Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,14 +90,11 @@
 		E0FF49372BBF4C1300B0F470 /* HeartBeats38UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeats38UITests.swift; sourceTree = "<group>"; };
 		E0FF49392BBF4C1300B0F470 /* HeartBeats38UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeats38UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E0FF49462BBF4CC000B0F470 /* HeartBeats38.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeartBeats38.entitlements; sourceTree = "<group>"; };
-		E0FF494B2BBF4CD900B0F470 /* HeartBeatsW Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HeartBeatsW Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FF494D2BBF4CDA00B0F470 /* HeartBeatsWApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatsWApp.swift; sourceTree = "<group>"; };
 		E0FF494F2BBF4CDA00B0F470 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E0FF49512BBF4CDC00B0F470 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0FF49542BBF4CDC00B0F470 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E0FF495A2BBF4CDC00B0F470 /* HeartBeatsW Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HeartBeatsW Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FF495E2BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatsW_Watch_AppTests.swift; sourceTree = "<group>"; };
-		E0FF49642BBF4CDC00B0F470 /* HeartBeatsW Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HeartBeatsW Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FF49682BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatsW_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		E0FF496A2BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatsW_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E0FF49792BBF4D0000B0F470 /* HeartBeatsW Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HeartBeatsW Watch App.entitlements"; sourceTree = "<group>"; };
@@ -158,27 +124,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E0FF49482BBF4CD900B0F470 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E0FF49572BBF4CDC00B0F470 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E0FF49612BBF4CDC00B0F470 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -201,9 +146,6 @@
 				E0FF49172BBF4C1200B0F470 /* HeartBeats38.app */,
 				E0FF49292BBF4C1300B0F470 /* HeartBeats38Tests.xctest */,
 				E0FF49332BBF4C1300B0F470 /* HeartBeats38UITests.xctest */,
-				E0FF494B2BBF4CD900B0F470 /* HeartBeatsW Watch App.app */,
-				E0FF495A2BBF4CDC00B0F470 /* HeartBeatsW Watch AppTests.xctest */,
-				E0FF49642BBF4CDC00B0F470 /* HeartBeatsW Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,11 +208,11 @@
 			isa = PBXGroup;
 			children = (
 				E0FF49792BBF4D0000B0F470 /* HeartBeatsW Watch App.entitlements */,
+				E0FF497E2BBF4DC400B0F470 /* HeartRateManager.swift */,
 				E0FF494D2BBF4CDA00B0F470 /* HeartBeatsWApp.swift */,
 				E0FF494F2BBF4CDA00B0F470 /* ContentView.swift */,
 				E0FF49512BBF4CDC00B0F470 /* Assets.xcassets */,
 				E0FF49532BBF4CDC00B0F470 /* Preview Content */,
-				E0FF497E2BBF4DC400B0F470 /* HeartRateManager.swift */,
 			);
 			path = "HeartBeatsW Watch App";
 			sourceTree = "<group>";
@@ -315,7 +257,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				E0FF496D2BBF4CDC00B0F470 /* PBXTargetDependency */,
 			);
 			name = HeartBeats38;
 			productName = HeartBeats38;
@@ -358,59 +299,6 @@
 			productReference = E0FF49332BBF4C1300B0F470 /* HeartBeats38UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		E0FF494A2BBF4CD900B0F470 /* HeartBeatsW Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E0FF496F2BBF4CDC00B0F470 /* Build configuration list for PBXNativeTarget "HeartBeatsW Watch App" */;
-			buildPhases = (
-				E0FF49472BBF4CD900B0F470 /* Sources */,
-				E0FF49482BBF4CD900B0F470 /* Frameworks */,
-				E0FF49492BBF4CD900B0F470 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "HeartBeatsW Watch App";
-			productName = "HeartBeatsW Watch App";
-			productReference = E0FF494B2BBF4CD900B0F470 /* HeartBeatsW Watch App.app */;
-			productType = "com.apple.product-type.application";
-		};
-		E0FF49592BBF4CDC00B0F470 /* HeartBeatsW Watch AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E0FF49732BBF4CDC00B0F470 /* Build configuration list for PBXNativeTarget "HeartBeatsW Watch AppTests" */;
-			buildPhases = (
-				E0FF49562BBF4CDC00B0F470 /* Sources */,
-				E0FF49572BBF4CDC00B0F470 /* Frameworks */,
-				E0FF49582BBF4CDC00B0F470 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E0FF495C2BBF4CDC00B0F470 /* PBXTargetDependency */,
-			);
-			name = "HeartBeatsW Watch AppTests";
-			productName = "HeartBeatsW Watch AppTests";
-			productReference = E0FF495A2BBF4CDC00B0F470 /* HeartBeatsW Watch AppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		E0FF49632BBF4CDC00B0F470 /* HeartBeatsW Watch AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E0FF49762BBF4CDC00B0F470 /* Build configuration list for PBXNativeTarget "HeartBeatsW Watch AppUITests" */;
-			buildPhases = (
-				E0FF49602BBF4CDC00B0F470 /* Sources */,
-				E0FF49612BBF4CDC00B0F470 /* Frameworks */,
-				E0FF49622BBF4CDC00B0F470 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E0FF49662BBF4CDC00B0F470 /* PBXTargetDependency */,
-			);
-			name = "HeartBeatsW Watch AppUITests";
-			productName = "HeartBeatsW Watch AppUITests";
-			productReference = E0FF49642BBF4CDC00B0F470 /* HeartBeatsW Watch AppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -432,17 +320,6 @@
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = E0FF49162BBF4C1100B0F470;
 					};
-					E0FF494A2BBF4CD900B0F470 = {
-						CreatedOnToolsVersion = 15.3;
-					};
-					E0FF49592BBF4CDC00B0F470 = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = E0FF494A2BBF4CD900B0F470;
-					};
-					E0FF49632BBF4CDC00B0F470 = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = E0FF494A2BBF4CD900B0F470;
-					};
 				};
 			};
 			buildConfigurationList = E0FF49122BBF4C1100B0F470 /* Build configuration list for PBXProject "HeartBeats38" */;
@@ -461,9 +338,6 @@
 				E0FF49162BBF4C1100B0F470 /* HeartBeats38 */,
 				E0FF49282BBF4C1300B0F470 /* HeartBeats38Tests */,
 				E0FF49322BBF4C1300B0F470 /* HeartBeats38UITests */,
-				E0FF494A2BBF4CD900B0F470 /* HeartBeatsW Watch App */,
-				E0FF49592BBF4CDC00B0F470 /* HeartBeatsW Watch AppTests */,
-				E0FF49632BBF4CDC00B0F470 /* HeartBeatsW Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -489,29 +363,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E0FF49312BBF4C1300B0F470 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E0FF49492BBF4CD900B0F470 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E0FF49552BBF4CDC00B0F470 /* Preview Assets.xcassets in Resources */,
-				E0FF49522BBF4CDC00B0F470 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E0FF49582BBF4CDC00B0F470 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E0FF49622BBF4CDC00B0F470 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -560,33 +411,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E0FF49472BBF4CD900B0F470 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E0FF497F2BBF4DC400B0F470 /* HeartRateManager.swift in Sources */,
-				E0FF49502BBF4CDA00B0F470 /* ContentView.swift in Sources */,
-				E0FF494E2BBF4CDA00B0F470 /* HeartBeatsWApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E0FF49562BBF4CDC00B0F470 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E0FF495F2BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E0FF49602BBF4CDC00B0F470 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E0FF49692BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppUITests.swift in Sources */,
-				E0FF496B2BBF4CDC00B0F470 /* HeartBeatsW_Watch_AppUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -599,21 +423,6 @@
 			isa = PBXTargetDependency;
 			target = E0FF49162BBF4C1100B0F470 /* HeartBeats38 */;
 			targetProxy = E0FF49342BBF4C1300B0F470 /* PBXContainerItemProxy */;
-		};
-		E0FF495C2BBF4CDC00B0F470 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E0FF494A2BBF4CD900B0F470 /* HeartBeatsW Watch App */;
-			targetProxy = E0FF495B2BBF4CDC00B0F470 /* PBXContainerItemProxy */;
-		};
-		E0FF49662BBF4CDC00B0F470 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E0FF494A2BBF4CD900B0F470 /* HeartBeatsW Watch App */;
-			targetProxy = E0FF49652BBF4CDC00B0F470 /* PBXContainerItemProxy */;
-		};
-		E0FF496D2BBF4CDC00B0F470 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E0FF494A2BBF4CD900B0F470 /* HeartBeatsW Watch App */;
-			targetProxy = E0FF496C2BBF4CDC00B0F470 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -748,7 +557,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HeartBeats38/Preview Content\"";
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
+				DEVELOPMENT_TEAM = 6C2VGLB93A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HeartBeats38/Info.plist;
@@ -763,7 +572,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ernesto.HeartBeats38;
+				PRODUCT_BUNDLE_IDENTIFIER = Richie.HeartBeatss38;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -782,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HeartBeats38/Preview Content\"";
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
+				DEVELOPMENT_TEAM = 6C2VGLB93A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HeartBeats38/Info.plist;
@@ -797,7 +606,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ernesto.HeartBeats38;
+				PRODUCT_BUNDLE_IDENTIFIER = Richie.HeartBeatss38;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -812,11 +621,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
+				DEVELOPMENT_TEAM = 6C2VGLB93A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ernesto.HeartBeats38Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = Richie.HeartBeatss38Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -832,11 +641,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
+				DEVELOPMENT_TEAM = 6C2VGLB93A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ernesto.HeartBeats38Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = Richie.HeartBeatss38Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -851,10 +660,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
+				DEVELOPMENT_TEAM = 6C2VGLB93A;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ernesto.HeartBeats38UITests;
+				PRODUCT_BUNDLE_IDENTIFIER = Richie.HeartBeatss38;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -869,159 +678,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
+				DEVELOPMENT_TEAM = 6C2VGLB93A;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ernesto.HeartBeats38UITests;
+				PRODUCT_BUNDLE_IDENTIFIER = Richie.HeartBeatss38;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HeartBeats38;
-			};
-			name = Release;
-		};
-		E0FF49702BBF4CDC00B0F470 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "HeartBeatsW Watch App/HeartBeatsW Watch App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HeartBeatsW Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = HeartBeatsW;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Ernesto.HeartBeats38;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ernesto.HeartBeats38.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Debug;
-		};
-		E0FF49712BBF4CDC00B0F470 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "HeartBeatsW Watch App/HeartBeatsW Watch App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HeartBeatsW Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = HeartBeatsW;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Ernesto.HeartBeats38;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Ernesto.HeartBeats38.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Release;
-		};
-		E0FF49742BBF4CDC00B0F470 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Ernesto.HeartBeatsW-Watch-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeartBeatsW Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HeartBeatsW Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Debug;
-		};
-		E0FF49752BBF4CDC00B0F470 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Ernesto.HeartBeatsW-Watch-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeartBeatsW Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HeartBeatsW Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Release;
-		};
-		E0FF49772BBF4CDC00B0F470 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Ernesto.HeartBeatsW-Watch-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "HeartBeatsW Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Debug;
-		};
-		E0FF49782BBF4CDC00B0F470 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RNZG92W2CQ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Ernesto.HeartBeatsW-Watch-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "HeartBeatsW Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
 			};
 			name = Release;
 		};
@@ -1060,33 +725,6 @@
 			buildConfigurations = (
 				E0FF49442BBF4C1300B0F470 /* Debug */,
 				E0FF49452BBF4C1300B0F470 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E0FF496F2BBF4CDC00B0F470 /* Build configuration list for PBXNativeTarget "HeartBeatsW Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E0FF49702BBF4CDC00B0F470 /* Debug */,
-				E0FF49712BBF4CDC00B0F470 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E0FF49732BBF4CDC00B0F470 /* Build configuration list for PBXNativeTarget "HeartBeatsW Watch AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E0FF49742BBF4CDC00B0F470 /* Debug */,
-				E0FF49752BBF4CDC00B0F470 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E0FF49762BBF4CDC00B0F470 /* Build configuration list for PBXNativeTarget "HeartBeatsW Watch AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E0FF49772BBF4CDC00B0F470 /* Debug */,
-				E0FF49782BBF4CDC00B0F470 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
