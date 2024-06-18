@@ -13,28 +13,28 @@ struct ContentView: View {
     @State private var elapsedTime = 0
     @State private var elapsedTimeTimer: Timer?
 
-
     var body: some View {
         ZStack {
             Color.white.ignoresSafeArea()
-            
+
             VStack {
                 Text("Elapsed Workout Time: \(elapsedTime) seconds")
                     .foregroundColor(.black)
                     .padding()
 
-                Text("Heart Rate: \(viewModel.heartRate, specifier: "%.1f") BPM").foregroundColor(.black)
+                Text("Heart Rate: \(viewModel.heartRate, specifier: "%.1f") BPM")
+                    .foregroundColor(.black)
                 Text(statusMessage)
                     .foregroundColor(.black)
                     .padding()
-                
+
                 if showCountdown {
                     Text("Workout starting in... \(countdown)")
                         .foregroundColor(.black)
                         .font(.title)
                         .transition(.scale)
                 }
-       
+
                 if !isWorkoutActive {
                     Button(action: startWorkout) {
                         Image("heartPlay")
@@ -42,10 +42,10 @@ struct ContentView: View {
                             .scaledToFit()
                             .frame(width: 100, height: 100)
                             .opacity(buttonOpacity)
-                        }
+                    }
                 }
-                
-                if isWorkoutActive{
+
+                if isWorkoutActive {
                     Button(action: stopWorkout) {
                         Image("heartStop")
                             .resizable()
@@ -59,22 +59,15 @@ struct ContentView: View {
                             .frame(width: 100, height: 100)
                     }
                     Button("Resume Workout", action: resumeWorkout)
-                            .buttonStyle(PrimaryButtonStyle(isDisabled: !viewModel.isWorkoutActive, backgroundColor: .green, textColor: .white))
-                    
+                        .buttonStyle(PrimaryButtonStyle(isDisabled: !viewModel.isWorkoutActive, backgroundColor: .green, textColor: .white))
                 }
             }
-            .onChange(of: viewModel.heartRate){ newRate in
+            .onChange(of: viewModel.heartRate) { oldRate, newRate in
                 audioPlayerManager.adjustPlaybackRate(basedOnHeartRate: newRate)
             }
         }
     }
-    
-    func pauseWorkout() {
-           viewModel.pauseWorkout()
-           statusMessage = "Workout paused."
-           stopElapsedTimeTimer()
-       }
-  
+
     func startWorkout() {
         showCountdown = true
         countdown = 3
@@ -99,6 +92,7 @@ struct ContentView: View {
             }
         }
     }
+
     func restartWorkout() {
         stopWorkout()
         stopElapsedTimeTimer()       // Stop the elapsed time timer.
@@ -108,12 +102,20 @@ struct ContentView: View {
         isAudioPlaying = false
         startWorkout()               // Optionally, automatically start the workout again.
     }
+
     func resumeWorkout() {
         viewModel.startHeartRateSimulation()  // Assumes this function can handle resuming
         startElapsedTimeTimer()  // Resume the elapsed time timer
         statusMessage = "Workout resumed."
         isWorkoutActive = true  // Update the workout state to active
     }
+
+    func pauseWorkout() {
+        viewModel.pauseWorkout()
+        statusMessage = "Workout paused."
+        stopElapsedTimeTimer()
+    }
+
     func stopWorkout() {
         viewModel.stopHeartRateSimulation()
         statusMessage = "Workout stopped."
@@ -122,12 +124,14 @@ struct ContentView: View {
         isAudioPlaying = false
         stopElapsedTimeTimer()
     }
+
     func startElapsedTimeTimer() {
         stopElapsedTimeTimer()
         elapsedTimeTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             elapsedTime += 1
         }
     }
+
     func stopElapsedTimeTimer() {
         elapsedTimeTimer?.invalidate()
         elapsedTimeTimer = nil
@@ -138,7 +142,7 @@ struct PrimaryButtonStyle: ButtonStyle {
     var isDisabled: Bool
     var backgroundColor: Color
     var textColor: Color
-    
+
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .foregroundColor(isDisabled ? backgroundColor : textColor)
@@ -148,4 +152,3 @@ struct PrimaryButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
     }
 }
-
