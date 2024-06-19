@@ -1,13 +1,13 @@
 import SwiftUI
 import AVFoundation
-import Firebase
 
-struct ContentView: View {
-    @StateObject private var viewModel = HeartRateViewModel()
+struct WorkoutView: View {
     @ObservedObject var audioPlayerManager: AudioPlayerManager
+    @StateObject private var viewModel = HeartRateViewModel()
+    var selectedFile: String
+
     @State private var statusMessage = ""
     @State private var isWorkoutActive = false
-    @State private var isAudioPlaying = false
     @State private var countdown = 3
     @State private var showCountdown = false
     @State private var buttonOpacity = 1.0
@@ -16,10 +16,6 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            NavigationLink(destination: AudioFilesView(audioPlayerManager: audioPlayerManager)) {
-                Text("Go to Audio Files")
-            }
-            
             Text("Elapsed Workout Time: \(elapsedTime) seconds")
                 .foregroundColor(.black)
                 .padding()
@@ -62,6 +58,9 @@ struct ContentView: View {
                     .buttonStyle(PrimaryButtonStyle(isDisabled: !viewModel.isWorkoutActive, backgroundColor: .green, textColor: .white))
             }
         }
+        .onAppear {
+            audioPlayerManager.loadAudioFile(fileName: selectedFile)
+        }
         .onChange(of: viewModel.heartRate) { oldRate, newRate in
             audioPlayerManager.adjustPlaybackRate(basedOnHeartRate: newRate)
         }
@@ -85,24 +84,11 @@ struct ContentView: View {
                 showCountdown = false
                 viewModel.startHeartRateSimulation()
                 statusMessage = "Workout started."
-                if let audioPlayer = audioPlayerManager.audioPlayer, audioPlayer.url != nil {
-                    audioPlayerManager.play()
-                    isAudioPlaying = true
-                }
+                audioPlayerManager.play()
                 isWorkoutActive = true
                 startElapsedTimeTimer()
             }
         }
-    }
-
-    func restartWorkout() {
-        stopWorkout()
-        stopElapsedTimeTimer()
-        elapsedTime = 0
-        statusMessage = "Workout restarted."
-        isWorkoutActive = false
-        isAudioPlaying = false
-        startWorkout()
     }
 
     func resumeWorkout() {
@@ -123,7 +109,6 @@ struct ContentView: View {
         statusMessage = "Workout stopped."
         audioPlayerManager.stop()
         isWorkoutActive = false
-        isAudioPlaying = false
         stopElapsedTimeTimer()
     }
 

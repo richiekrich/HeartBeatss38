@@ -1,65 +1,45 @@
-//
-//  AudioFilesView.swift
-//  HeartBeats38
-//
-//  Created by Ernesto Diaz on 4/18/24.
-//
-
 import SwiftUI
 
 struct AudioFilesView: View {
-    @ObservedObject var audioManager = AudioFileManager()
-    @State private var showingFilePicker = false
+    @ObservedObject var audioFileManager = AudioFileManager()
+    @ObservedObject var audioPlayerManager: AudioPlayerManager
+    @State private var selectedFile: String? = nil
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(audioManager.files, id: \.self) { file in
+        VStack {
+            List(audioFileManager.files, id: \.self) { file in
+                HStack {
                     Text(file)
+                    Spacer()
+                    Button(action: {
+                        selectedFile = file
+                    }) {
+                        Text(selectedFile == file ? "Selected" : "Select")
+                            .foregroundColor(selectedFile == file ? .green : .blue)
+                    }
                 }
-                .onDelete(perform: audioManager.deleteFile)
             }
-            .navigationBarTitle("My Tracks")
-            .navigationBarItems(trailing: Button(action: {
-                showingFilePicker = true
-            }) {
-                Image(systemName: "plus")
-            })
-            .sheet(isPresented: $showingFilePicker) {
-                DocumentPicker() { url in
-                    audioManager.addFile(url: url)
+            .onAppear {
+                print("AudioFilesView appeared, fetching files from Firebase")
+                audioFileManager.fetchFilesFromFirebase()
+            }
+
+            if let selectedFile = selectedFile {
+                NavigationLink(destination: WorkoutView(audioPlayerManager: audioPlayerManager, selectedFile: selectedFile)) {
+                    Text("Proceed to Workout")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(10)
                 }
+                .padding()
             }
         }
     }
 }
 
-struct DocumentPicker: UIViewControllerRepresentable {
-    var onPick: (URL) -> Void
-
-    func makeUIViewController(context: Context) -> some UIViewController {
-        let picker = UIDocumentPickerViewController(documentTypes: ["public.audio"], in: .import)
-        picker.delegate = context.coordinator
-        return picker
-    }
-
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-
-    class Coordinator: NSObject, UIDocumentPickerDelegate {
-        var parent: DocumentPicker
-
-        init(_ parent: DocumentPicker) {
-            self.parent = parent
-        }
-
-        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            guard let url = urls.first else { return }
-            parent.onPick(url)
-        }
+struct AudioFilesView_Previews: PreviewProvider {
+    static var previews: some View {
+        AudioFilesView(audioPlayerManager: AudioPlayerManager())
     }
 }
-

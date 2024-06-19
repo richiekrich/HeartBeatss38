@@ -1,34 +1,27 @@
-//
-//  HomeView.swift
-//  HeartBeats38
-//
-//  Created by Ernesto Diaz on 4/18/24.
-//
-
 import SwiftUI
 
 struct HomeView: View {
     @State private var isPulsing = false
-    
+    @StateObject private var audioPlayerManager = AudioPlayerManager() // Create an instance of AudioPlayerManager
+
     var body: some View {
-        ZStack{
+        ZStack {
             Color.white.edgesIgnoringSafeArea(.all)
             NavigationView {
                 VStack {
                     Image("hearthome")
-                        .resizable() //
+                        .resizable()
                         .scaledToFit()
                         .frame(width: 400, height: 400)
                         .padding(.bottom, 10)
-                        .opacity(isPulsing ? 1.0 : 0.3)  // Opacity changes from 0.3 to 1.0
+                        .opacity(isPulsing ? 1.0 : 0.3)
                         .onAppear {
                             withAnimation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)) {
-                                isPulsing.toggle() // Start the animation when the view appears
-                                                }
-                                            }
-                    
-                    
-                    NavigationLink(destination: ContentView()) {
+                                isPulsing.toggle()
+                            }
+                        }
+
+                    NavigationLink(destination: ContentView(audioPlayerManager: audioPlayerManager)) { // Pass the instance
                         Text("Start Workout")
                             .foregroundColor(.white)
                             .padding()
@@ -45,8 +38,8 @@ struct HomeView: View {
                             .cornerRadius(10)
                     }
                     .padding()
-                    
-                    NavigationLink(destination: AudioFilesView()) {
+
+                    NavigationLink(destination: AudioFilesView(audioPlayerManager: audioPlayerManager)) { // Pass the instance
                         Text("My Tracks")
                             .foregroundColor(.white)
                             .padding()
@@ -55,13 +48,12 @@ struct HomeView: View {
                     }
                     .padding()
                 }
-                .navigationBarTitle("Welcome to HeartBeats!", displayMode: .inline).background(Color.white)
+                .navigationBarTitle("Welcome to HeartBeats!", displayMode: .inline)
+                .background(Color.white)
             }
         }
-        }
-       
+    }
 }
-
 
 #Preview {
     HomeView()

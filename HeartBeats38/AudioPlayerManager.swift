@@ -4,39 +4,37 @@ import AVFoundation
 class AudioPlayerManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
     var audioPlayer: AVAudioPlayer?
     @Published var isPlaying: Bool = false
-
+    
     override init() {
         super.init()
-        loadAudioFile()
     }
-
-    func loadAudioFile() {
-        if let path = Bundle.main.path(forResource: "Sample-2", ofType: "mp3") {
-            do {
-                let url = URL(fileURLWithPath: path)
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.enableRate = true
-                audioPlayer?.delegate = self  // Set delegate to self
-            } catch {
-                print("Failed to load audio file: \(error)")
-            }
-        } else {
-            print("File not found")
+    
+    func loadAudioFile(fileName: String) {
+        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileURL = documentsPath.appendingPathComponent(fileName)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: fileURL)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.enableRate = true
+            audioPlayer?.delegate = self
+            print("Audio file loaded: \(fileName)")
+        } catch {
+            print("Failed to load audio file: \(error)")
         }
     }
-
+    
     func play() {
-        if !(audioPlayer?.isPlaying ?? true) {
-            audioPlayer?.play()
+        if let player = audioPlayer, !player.isPlaying {
+            player.play()
             isPlaying = true
         }
     }
-
+    
     func stop() {
-        if audioPlayer?.isPlaying ?? false {
-            audioPlayer?.stop()
-            audioPlayer?.currentTime = 0  // Rewind to the start for the next play
+        if let player = audioPlayer, player.isPlaying {
+            player.stop()
+            player.currentTime = 0
             isPlaying = false
         }
     }
@@ -46,10 +44,8 @@ class AudioPlayerManager: NSObject, ObservableObject, AVAudioPlayerDelegate {
         let playbackRate = heartRate / baseHeartRate
         audioPlayer?.rate = Float(max(0.5, min(playbackRate, 2.0)))
     }
-
-    // AVAudioPlayerDelegate method
+    
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         isPlaying = false
     }
 }
-
