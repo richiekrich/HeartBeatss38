@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAWLQGbmXv_jCb2Z7yioRqtf4s6beab6zI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>407776402241</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Richie.HeartBeatss38</string>
+	<key>PROJECT_ID</key>
+	<string>heartbeats-4311a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>heartbeats-4311a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:407776402241:ios:bec18d1a542a5b58b39fc0</string>
+</dict>
+</plist>

@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import Firebase
 
 struct ContentView: View {
     @StateObject private var viewModel = HeartRateViewModel()
