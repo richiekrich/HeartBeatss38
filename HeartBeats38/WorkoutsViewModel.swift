@@ -50,6 +50,25 @@ class WorkoutsViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
+    func deleteWorkout(_ workout: Workout, completion: @escaping (Result<Void, Error>) -> Void) {
+        isLoading = true
+        firestoreService.deleteWorkout(workout)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completionState in
+                self.isLoading = false
+                switch completionState {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .finished:
+                    if let index = self.workouts.firstIndex(where: { $0.id == workout.id }) {
+                        self.workouts.remove(at: index)
+                    }
+                    completion(.success(()))
+                }
+            }, receiveValue: { })
+            .store(in: &cancellables)
+    }
+
     private func validateWorkout(_ workout: Workout) -> Bool {
         return !workout.name.isEmpty && !workout.duration.isEmpty && workout.avgHeartBeat > 0
     }

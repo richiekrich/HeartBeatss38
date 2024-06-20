@@ -45,4 +45,22 @@ class FirestoreService {
         }
         .eraseToAnyPublisher()
     }
+
+    func deleteWorkout(_ workout: Workout) -> AnyPublisher<Void, Error> {
+        Future<Void, Error> { promise in
+            guard let workoutID = workout.id else {
+                promise(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invalid workout ID."])))
+                return
+            }
+
+            self.db.collection(self.collection).document(workoutID).delete { error in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(()))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
 }
