@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SavedWorkouts: View {
     @ObservedObject var viewModel = WorkoutsViewModel()
+    @State private var showingAddWorkout = false
     
     var body: some View {
         NavigationView {
@@ -25,6 +26,14 @@ struct SavedWorkouts: View {
                 }
             }
             .navigationBarTitle("Saved Workouts")
+            .navigationBarItems(trailing: Button(action: {
+                showingAddWorkout.toggle()
+            }) {
+                Image(systemName: "plus")
+            })
+            .sheet(isPresented: $showingAddWorkout) {
+                AddWorkoutView(viewModel: viewModel)
+            }
         }
     }
     
@@ -34,10 +43,10 @@ struct SavedWorkouts: View {
         formatter.timeStyle = .none
         return formatter
     }()
+    
     struct SavedWorkouts_Previews: PreviewProvider {
         static var previews: some View {
             SavedWorkouts()
         }
     }
-   
 }

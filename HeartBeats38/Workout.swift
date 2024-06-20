@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct Workout: Identifiable {
-    var id = UUID()
+struct Workout: Identifiable, Codable {
+    @DocumentID var id: String? = UUID().uuidString
     var name: String
     var duration: String
     var date: Date
