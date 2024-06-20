@@ -7,41 +7,42 @@
 
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Combine
 
 class FirestoreService {
     private let db = Firestore.firestore()
     private let collection = "workouts"
-    
-    func fetchWorkouts(completion: @escaping (Result<[Workout], Error>) -> Void) {
-        db.collection(collection).getDocuments { (snapshot, error) in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let documents = snapshot?.documents else {
-                completion(.success([]))
-                return
-            }
-            
-            let workouts = documents.compactMap { (document) -> Workout? in
-                try? document.data(as: Workout.self)
-            }
-            completion(.success(workouts))
-        }
-    }
-    
-    func addWorkout(_ workout: Workout, completion: @escaping (Result<Void, Error>) -> Void) {
-        do {
-            _ = try db.collection(collection).addDocument(from: workout) { error in
+
+    func fetchWorkouts() -> AnyPublisher<[Workout], Error> {
+        Future<[Workout], Error> { promise in
+            self.db.collection(self.collection).getDocuments { snapshot, error in
                 if let error = error {
-                    completion(.failure(error))
+                    promise(.failure(error))
                 } else {
-                    completion(.success(()))
+                    let workouts = snapshot?.documents.compactMap { document in
+                        try? document.data(as: Workout.self)
+                    } ?? []
+                    promise(.success(workouts))
                 }
             }
-        } catch {
-            completion(.failure(error))
         }
+        .eraseToAnyPublisher()
+    }
+
+    func addWorkout(_ workout: Workout) -> AnyPublisher<Void, Error> {
+        Future<Void, Error> { promise in
+            do {
+                _ = try self.db.collection(self.collection).addDocument(from: workout) { error in
+                    if let error = error {
+                        promise(.failure(error))
+                    } else {
+                        promise(.success(()))
+                    }
+                }
+            } catch {
+                promise(.failure(error))
+            }
+        }
+        .eraseToAnyPublisher()
     }
 }
