@@ -9,9 +9,18 @@ import Foundation
 import FirebaseFirestoreSwift
 
 struct Workout: Identifiable, Codable {
-    @DocumentID var id: String?
+    @DocumentID var id: String? // Ensure this is optional to handle Firestore's automatic ID generation
     var name: String
     var duration: String
     var date: Date
     var avgHeartBeat: Int
+
+    var dictionary: [String: Any] {
+        return [
+            "name": name,
+            "duration": duration,
+            "date": date,
+            "avgHeartBeat": avgHeartBeat
+        ]
+    }
 }

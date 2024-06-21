@@ -36,4 +36,3 @@ class VideoSplashViewController: UIViewController {
     }
 }
 
-

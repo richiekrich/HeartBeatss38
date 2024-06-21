@@ -45,6 +45,7 @@ class WorkoutsViewModel: ObservableObject {
                     completion(.failure(error))
                 case .finished:
                     completion(.success(()))
+                    self.workouts.append(workout)
                 }
             }, receiveValue: { })
             .store(in: &cancellables)
@@ -62,6 +63,30 @@ class WorkoutsViewModel: ObservableObject {
                 case .finished:
                     if let index = self.workouts.firstIndex(where: { $0.id == workout.id }) {
                         self.workouts.remove(at: index)
+                    }
+                    completion(.success(()))
+                }
+            }, receiveValue: { })
+            .store(in: &cancellables)
+    }
+
+    func updateWorkout(_ workout: Workout, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let id = workout.id else {
+            completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Workout ID is missing."])))
+            return
+        }
+
+        isLoading = true
+        firestoreService.updateWorkout(workout)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completionState in
+                self.isLoading = false
+                switch completionState {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .finished:
+                    if let index = self.workouts.firstIndex(where: { $0.id == id }) {
+                        self.workouts[index] = workout
                     }
                     completion(.success(()))
                 }

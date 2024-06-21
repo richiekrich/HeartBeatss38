@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import UIKit
+import AVFoundation
 
 struct VideoPlayerView: UIViewControllerRepresentable {
     @EnvironmentObject var playerViewModel: PlayerViewModel
@@ -22,5 +22,6 @@ struct VideoPlayerView: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: VideoSplashViewController, context: Context) {
+        // No update needed
     }
 }

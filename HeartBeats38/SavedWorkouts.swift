@@ -1,15 +1,9 @@
-//
-//  SavedWorkouts.swift
-//  HeartBeats38
-//
-//  Created by Ernesto Diaz on 4/18/24.
-//
-
 import SwiftUI
 
 struct SavedWorkouts: View {
     @ObservedObject var viewModel = WorkoutsViewModel()
     @State private var showingAddWorkout = false
+    @State private var workoutToEdit: Workout?
 
     var body: some View {
         NavigationView {
@@ -25,18 +19,42 @@ struct SavedWorkouts: View {
                         Text("Avg Heartbeat: \(workout.avgHeartBeat) bpm")
                             .font(.caption)
                     }
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            viewModel.deleteWorkout(workout) { result in
+                                switch result {
+                                case .success:
+                                    print("Workout deleted successfully")
+                                case .failure(let error):
+                                    print("Error deleting workout: \(error.localizedDescription)")
+                                }
+                            }
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+                    .swipeActions(edge: .leading) {
+                        Button {
+                            workoutToEdit = workout
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
+                                .labelStyle(.iconOnly)
+                                .foregroundColor(.blue)
+                        }
+                    }
                 }
-                .onDelete(perform: deleteWorkout)
             }
             .navigationBarTitle("Saved Workouts")
             .navigationBarItems(
-                leading: EditButton(),
                 trailing: Button(action: {
                     showingAddWorkout.toggle()
                 }) {
                     Image(systemName: "plus")
                 }
             )
+            .sheet(item: $workoutToEdit) { workout in
+                EditWorkoutView(viewModel: viewModel, workout: workout)
+            }
             .sheet(isPresented: $showingAddWorkout) {
                 AddWorkoutView(viewModel: viewModel)
             }

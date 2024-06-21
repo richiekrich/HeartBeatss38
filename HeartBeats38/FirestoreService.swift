@@ -63,4 +63,22 @@ class FirestoreService {
         }
         .eraseToAnyPublisher()
     }
+    
+    func updateWorkout(_ workout: Workout) -> AnyPublisher<Void, Error> {
+        guard let id = workout.id else {
+            return Fail(error: NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Workout ID is missing."]))
+                .eraseToAnyPublisher()
+        }
+
+        return Future { promise in
+            self.db.collection(self.collection).document(id).setData(workout.dictionary) { error in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(()))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
 }
