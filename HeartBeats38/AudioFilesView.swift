@@ -1,31 +1,34 @@
 import SwiftUI
 
 struct AudioFilesView: View {
-    @ObservedObject var audioFileManager = AudioFileManager()
     @ObservedObject var audioPlayerManager: AudioPlayerManager
-    @State private var selectedFile: String? = nil
+    @Environment(\.presentationMode) var presentationMode
+    @State private var selectedFile: String?
+    @State private var showingDocumentPicker = false
 
     var body: some View {
         VStack {
-            List(audioFileManager.files, id: \.self) { file in
+            List(audioPlayerManager.audioFiles, id: \.self) { file in
                 HStack {
                     Text(file)
                     Spacer()
-                    Button(action: {
-                        selectedFile = file
-                    }) {
-                        Text(selectedFile == file ? "Selected" : "Select")
-                            .foregroundColor(selectedFile == file ? .green : .blue)
+                    if selectedFile == file {
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.blue)
                     }
                 }
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    selectedFile = file
+                }
             }
-            .onAppear {
-                print("AudioFilesView appeared, fetching files from Firebase")
-                audioFileManager.fetchFilesFromFirebase()
-            }
+            .navigationTitle("Audio Files")
 
             if let selectedFile = selectedFile {
-                NavigationLink(destination: WorkoutView(audioPlayerManager: audioPlayerManager, selectedFile: selectedFile)) {
+                Button(action: {
+                    audioPlayerManager.selectAudioFile(selectedFile)
+                    presentationMode.wrappedValue.dismiss()
+                }) {
                     Text("Proceed to Workout")
                         .foregroundColor(.white)
                         .padding()
@@ -34,12 +37,25 @@ struct AudioFilesView: View {
                 }
                 .padding()
             }
-        }
-    }
-}
 
-struct AudioFilesView_Previews: PreviewProvider {
-    static var previews: some View {
-        AudioFilesView(audioPlayerManager: AudioPlayerManager())
+            Button(action: {
+                showingDocumentPicker = true
+            }) {
+                Text("Add Your Own Track")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding()
+        }
+        .sheet(isPresented: $showingDocumentPicker) {
+            DocumentPicker { url in
+                audioPlayerManager.addAudioFile(url: url)
+            }
+        }
+        .onAppear {
+            audioPlayerManager.fetchAudioFiles()
+        }
     }
 }

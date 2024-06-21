@@ -6,43 +6,25 @@
 //
 
 import SwiftUI
-import AVKit
+import AVFoundation
 
 struct AudioPlayerView: View {
     @ObservedObject var audioPlayerManager: AudioPlayerManager
-    let fileName: String
 
     var body: some View {
         VStack {
-            if audioPlayerManager.audioPlayer != nil {
-                Text("Playing: \(fileName)")
-                    .padding()
-
-                // Placeholder for audio playback UI
-                // Use AVPlayer or another UI element for actual playback
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(height: 50)
-
-                HStack {
-                    Button(action: {
-                        audioPlayerManager.play()
-                    }) {
-                        Image(systemName: "play.fill")
+            Text("Now Playing: \(audioPlayerManager.currentFileName ?? "None")")
+            if let player = audioPlayerManager.audioPlayer {
+                if player.isPlaying {
+                    Button("Pause") {
+                        audioPlayerManager.pause()
                     }
-                    Button(action: {
-                        audioPlayerManager.stop()
-                    }) {
-                        Image(systemName: "stop.fill")
+                } else {
+                    Button("Play") {
+                        audioPlayerManager.play()
                     }
                 }
-            } else {
-                Text("Loading audio...")
-                    .padding()
             }
-        }
-        .onAppear {
-            audioPlayerManager.loadAudioFile(fileName: fileName)
         }
     }
 }

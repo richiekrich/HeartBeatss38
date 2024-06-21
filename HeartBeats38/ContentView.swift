@@ -1,10 +1,8 @@
 import SwiftUI
-import AVFoundation
-import Firebase
 
 struct ContentView: View {
-    @StateObject private var viewModel = HeartRateViewModel()
     @ObservedObject var audioPlayerManager: AudioPlayerManager
+    @StateObject private var viewModel = HeartRateViewModel()
     @State private var statusMessage = ""
     @State private var isWorkoutActive = false
     @State private var isAudioPlaying = false
@@ -13,30 +11,36 @@ struct ContentView: View {
     @State private var buttonOpacity = 1.0
     @State private var elapsedTime = 0
     @State private var elapsedTimeTimer: Timer?
-
+    
     var body: some View {
         VStack {
-            NavigationLink(destination: AudioFilesView(audioPlayerManager: audioPlayerManager)) {
-                Text("Go to Audio Files")
+            if let currentFileName = audioPlayerManager.currentFileName {
+                Text("Now Playing: \(currentFileName)")
+                    .font(.headline)
+                    .padding()
+            } else {
+                Text("No Track Selected")
+                    .font(.headline)
+                    .padding()
             }
             
             Text("Elapsed Workout Time: \(elapsedTime) seconds")
                 .foregroundColor(.black)
                 .padding()
-
+            
             Text("Heart Rate: \(viewModel.heartRate, specifier: "%.1f") BPM")
                 .foregroundColor(.black)
             Text(statusMessage)
                 .foregroundColor(.black)
                 .padding()
-
+            
             if showCountdown {
                 Text("Workout starting in... \(countdown)")
                     .foregroundColor(.black)
                     .font(.title)
                     .transition(.scale)
             }
-
+            
             if !isWorkoutActive {
                 Button(action: startWorkout) {
                     Image(systemName: "play.circle.fill")
@@ -66,7 +70,7 @@ struct ContentView: View {
             audioPlayerManager.adjustPlaybackRate(basedOnHeartRate: newRate)
         }
     }
-
+    
     func startWorkout() {
         showCountdown = true
         countdown = 3
@@ -94,7 +98,7 @@ struct ContentView: View {
             }
         }
     }
-
+    
     func restartWorkout() {
         stopWorkout()
         stopElapsedTimeTimer()
@@ -104,20 +108,20 @@ struct ContentView: View {
         isAudioPlaying = false
         startWorkout()
     }
-
+    
     func resumeWorkout() {
         viewModel.startHeartRateSimulation()
         startElapsedTimeTimer()
         statusMessage = "Workout resumed."
         isWorkoutActive = true
     }
-
+    
     func pauseWorkout() {
         viewModel.pauseWorkout()
         statusMessage = "Workout paused."
         stopElapsedTimeTimer()
     }
-
+    
     func stopWorkout() {
         viewModel.stopHeartRateSimulation()
         statusMessage = "Workout stopped."
@@ -126,14 +130,14 @@ struct ContentView: View {
         isAudioPlaying = false
         stopElapsedTimeTimer()
     }
-
+    
     func startElapsedTimeTimer() {
         stopElapsedTimeTimer()
         elapsedTimeTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             elapsedTime += 1
         }
     }
-
+    
     func stopElapsedTimeTimer() {
         elapsedTimeTimer?.invalidate()
         elapsedTimeTimer = nil

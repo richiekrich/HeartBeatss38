@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var isPulsing = false
-    @StateObject private var audioPlayerManager = AudioPlayerManager() // Create an instance of AudioPlayerManager
+    @StateObject private var audioPlayerManager = AudioPlayerManager()
 
     var body: some View {
         ZStack {
@@ -21,7 +21,7 @@ struct HomeView: View {
                             }
                         }
 
-                    NavigationLink(destination: ContentView(audioPlayerManager: audioPlayerManager)) { // Pass the instance
+                    NavigationLink(destination: ContentView(audioPlayerManager: audioPlayerManager)) {
                         Text("Start Workout")
                             .foregroundColor(.white)
                             .padding()
@@ -39,7 +39,7 @@ struct HomeView: View {
                     }
                     .padding()
 
-                    NavigationLink(destination: AudioFilesView(audioPlayerManager: audioPlayerManager)) { // Pass the instance
+                    NavigationLink(destination: AudioFilesView(audioPlayerManager: audioPlayerManager)) {
                         Text("My Tracks")
                             .foregroundColor(.white)
                             .padding()
