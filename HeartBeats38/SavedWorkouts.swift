@@ -59,7 +59,7 @@ struct SavedWorkouts: View {
         viewModel.deleteWorkout(workout) { result in
             switch result {
             case .success:
-                // Remove the workout locally if deletion is successful
+                // Update the view model to reflect the deletion
                 if let index = viewModel.workouts.firstIndex(where: { $0.id == workout.id }) {
                     viewModel.workouts.remove(at: index)
                 }

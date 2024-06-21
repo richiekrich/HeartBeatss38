@@ -44,10 +44,13 @@ class WorkoutsViewModel: ObservableObject {
                 case .failure(let error):
                     completion(.failure(error))
                 case .finished:
-                    self.workouts.append(workout)
                     completion(.success(()))
                 }
-            }, receiveValue: { })
+            }, receiveValue: { [weak self] in
+                // Ensure the workout is appended correctly
+                self?.workouts.append(workout)
+                self?.loadWorkouts() // Refresh the list from Firestore
+            })
             .store(in: &cancellables)
     }
 
@@ -61,6 +64,10 @@ class WorkoutsViewModel: ObservableObject {
                 case .failure(let error):
                     completion(.failure(error))
                 case .finished:
+                    self.objectWillChange.send() // Force view update
+                    if let index = self.workouts.firstIndex(where: { $0.id == workout.id }) {
+                        self.workouts.remove(at: index)
+                    }
                     completion(.success(()))
                 }
             }, receiveValue: { })
@@ -85,6 +92,7 @@ class WorkoutsViewModel: ObservableObject {
                     if let index = self.workouts.firstIndex(where: { $0.id == id }) {
                         self.workouts[index] = workout
                     }
+                    self.objectWillChange.send() // Force view update
                     completion(.success(()))
                 }
             }, receiveValue: { })
