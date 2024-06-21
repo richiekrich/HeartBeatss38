@@ -6,7 +6,7 @@ class HeartRateViewModel: ObservableObject {
     @Published var isWorkoutActive: Bool = false
     private var timer: Timer?
     private let heartRateRange: ClosedRange<Double> = 60...180
-    private let bpmIncrement: Double = 20.0 / 10.0  // 20 bpm every 10 seconds
+    private let bpmIncrement: Double = 2.0  // Adjust this increment to change heart rate more slowly
     private var isIncreasing = true
 
     func startHeartRateSimulation() {

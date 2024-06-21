@@ -116,8 +116,8 @@ class AudioPlayerManager: ObservableObject {
     func adjustPlaybackRate(basedOnHeartRate heartRate: Double) {
         let minBPM: Double = 60.0
         let maxBPM: Double = 180.0
-        let minRate: Float = 0.5
-        let maxRate: Float = 2.0
+        let minRate: Float = 1.0  // assuming normal playback rate for 60 BPM
+        let maxRate: Float = 3.0  // assuming maximum playback rate for 180 BPM
 
         let rate = minRate + (maxRate - minRate) * Float((heartRate - minBPM) / (maxBPM - minBPM))
         audioPlayer?.rate = rate
