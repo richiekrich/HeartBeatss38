@@ -5,8 +5,7 @@
 //  Created by Ernesto Diaz on 4/18/24.
 //
 
-import SwiftUI
-import Combine
+import Foundation
 
 class PlayerViewModel: ObservableObject {
     @Published var videoCompleted = false

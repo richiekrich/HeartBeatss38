@@ -17,11 +17,12 @@
 		1325EECD2C23998C00A58F0B /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1325EECC2C23998C00A58F0B /* PrimaryButtonStyle.swift */; };
 		1325EECF2C23DBB900A58F0B /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1325EECE2C23DBB900A58F0B /* FirestoreService.swift */; };
 		1325EED12C23DC1700A58F0B /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1325EED02C23DC1700A58F0B /* AddWorkoutView.swift */; };
+		137996142C2613DB004D0E05 /* HeartBeats.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 137996132C2613DB004D0E05 /* HeartBeats.mp4 */; };
+		137996162C26146F004D0E05 /* heartsplash.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 137996152C26146F004D0E05 /* heartsplash.mp4 */; };
 		13E8F9902C24F538006B6869 /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8F98F2C24F538006B6869 /* EditWorkoutView.swift */; };
 		13E8F9922C254260006B6869 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8F9912C254260006B6869 /* SplashScreen.swift */; };
 		167BD6492BD1AA420056A974 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6482BD1AA420056A974 /* HomeView.swift */; };
 		167BD64B2BD1AEF10056A974 /* SavedWorkouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD64A2BD1AEF10056A974 /* SavedWorkouts.swift */; };
-		167BD64D2BD1AF140056A974 /* heartsplash.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 167BD64C2BD1AF140056A974 /* heartsplash.mp4 */; };
 		167BD64F2BD1AFAD0056A974 /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD64E2BD1AFAD0056A974 /* VideoSplashViewController.swift */; };
 		167BD6512BD1B2920056A974 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6502BD1B2920056A974 /* VideoPlayerView.swift */; };
 		167BD6532BD1B3990056A974 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6522BD1B3990056A974 /* PlayerViewModel.swift */; };
@@ -79,11 +80,12 @@
 		1325EECC2C23998C00A58F0B /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		1325EECE2C23DBB900A58F0B /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		1325EED02C23DC1700A58F0B /* AddWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
+		137996132C2613DB004D0E05 /* HeartBeats.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = HeartBeats.mp4; sourceTree = "<group>"; };
+		137996152C26146F004D0E05 /* heartsplash.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = heartsplash.mp4; sourceTree = "<group>"; };
 		13E8F98F2C24F538006B6869 /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
 		13E8F9912C254260006B6869 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		167BD6482BD1AA420056A974 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		167BD64A2BD1AEF10056A974 /* SavedWorkouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedWorkouts.swift; sourceTree = "<group>"; };
-		167BD64C2BD1AF140056A974 /* heartsplash.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = heartsplash.mp4; sourceTree = "<group>"; };
 		167BD64E2BD1AFAD0056A974 /* VideoSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSplashViewController.swift; sourceTree = "<group>"; };
 		167BD6502BD1B2920056A974 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		167BD6522BD1B3990056A974 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
@@ -160,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				E0FF49222BBF4C1300B0F470 /* Preview Content */,
-				167BD64C2BD1AF140056A974 /* heartsplash.mp4 */,
+				137996132C2613DB004D0E05 /* HeartBeats.mp4 */,
 				1307054C2C22A5A3005FAEBD /* GoogleService-Info.plist */,
 				E00D7B4B2BCD391D0027318C /* Info.plist */,
 				E0FF49462BBF4CC000B0F470 /* HeartBeats38.entitlements */,
@@ -195,6 +197,7 @@
 			children = (
 				E0FF49202BBF4C1300B0F470 /* Assets.xcassets */,
 				E0FF49232BBF4C1300B0F470 /* Preview Assets.xcassets */,
+				137996152C26146F004D0E05 /* heartsplash.mp4 */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -330,7 +333,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0FF49242BBF4C1300B0F470 /* Preview Assets.xcassets in Resources */,
-				167BD64D2BD1AF140056A974 /* heartsplash.mp4 in Resources */,
+				137996162C26146F004D0E05 /* heartsplash.mp4 in Resources */,
+				137996142C2613DB004D0E05 /* HeartBeats.mp4 in Resources */,
 				E0FF49212BBF4C1300B0F470 /* Assets.xcassets in Resources */,
 				1307054D2C22A5A3005FAEBD /* GoogleService-Info.plist in Resources */,
 			);

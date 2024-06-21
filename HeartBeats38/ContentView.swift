@@ -11,63 +11,72 @@ struct ContentView: View {
     @State private var buttonOpacity = 1.0
     @State private var elapsedTime = 0
     @State private var elapsedTimeTimer: Timer?
+    @StateObject private var playerViewModel = PlayerViewModel()
 
     var body: some View {
-        VStack {
-            if let currentFileName = audioPlayerManager.currentFileName {
-                Text("Now Playing: \(currentFileName)")
-                    .font(.headline)
-                    .padding()
-            } else {
-                Text("No Track Selected")
-                    .font(.headline)
-                    .padding()
+        ZStack {
+            if isWorkoutActive && !playerViewModel.videoCompleted {
+                VideoPlayerView()
+                    .ignoresSafeArea()
+                    .environmentObject(playerViewModel)
             }
 
-            Text("Elapsed Workout Time: \(elapsedTime) seconds")
-                .foregroundColor(.black)
-                .padding()
+            VStack {
+                if let currentFileName = audioPlayerManager.currentFileName {
+                    Text("Now Playing: \(currentFileName)")
+                        .font(.headline)
+                        .padding()
+                } else {
+                    Text("No Track Selected")
+                        .font(.headline)
+                        .padding()
+                }
 
-            Text("Heart Rate: \(viewModel.heartRate, specifier: "%.1f") BPM")
-                .foregroundColor(.black)
-
-            Text("Playback Rate: \(audioPlayerManager.audioPlayer?.rate ?? 1.0, specifier: "%.2f")x")
-                .foregroundColor(.black)
-
-            Text(statusMessage)
-                .foregroundColor(.black)
-                .padding()
-
-            if showCountdown {
-                Text("Workout starting in... \(countdown)")
+                Text("Elapsed Workout Time: \(elapsedTime) seconds")
                     .foregroundColor(.black)
-                    .font(.title)
-                    .transition(.scale)
-            }
+                    .padding()
 
-            if !isWorkoutActive {
-                Button(action: startWorkout) {
-                    Image(systemName: "play.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                        .opacity(buttonOpacity)
+                Text("Heart Rate: \(viewModel.heartRate, specifier: "%.1f") BPM")
+                    .foregroundColor(.black)
+
+                Text("Playback Rate: \(audioPlayerManager.audioPlayer?.rate ?? 1.0, specifier: "%.2f")x")
+                    .foregroundColor(.black)
+
+                Text(statusMessage)
+                    .foregroundColor(.black)
+                    .padding()
+
+                if showCountdown {
+                    Text("Workout starting in... \(countdown)")
+                        .foregroundColor(.black)
+                        .font(.title)
+                        .transition(.scale)
                 }
-            } else {
-                Button(action: stopWorkout) {
-                    Image(systemName: "stop.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
+
+                if !isWorkoutActive {
+                    Button(action: startWorkout) {
+                        Image(systemName: "play.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .opacity(buttonOpacity)
+                    }
+                } else {
+                    Button(action: stopWorkout) {
+                        Image(systemName: "stop.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                    }
+                    Button(action: pauseWorkout) {
+                        Image(systemName: "pause.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                    }
+                    Button("Resume Workout", action: resumeWorkout)
+                        .buttonStyle(PrimaryButtonStyle(isDisabled: !viewModel.isWorkoutActive, backgroundColor: .green, textColor: .white))
                 }
-                Button(action: pauseWorkout) {
-                    Image(systemName: "pause.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                }
-                Button("Resume Workout", action: resumeWorkout)
-                    .buttonStyle(PrimaryButtonStyle(isDisabled: !viewModel.isWorkoutActive, backgroundColor: .green, textColor: .white))
             }
         }
         .onChange(of: viewModel.heartRate) { oldRate, newRate in
@@ -99,6 +108,7 @@ struct ContentView: View {
                 }
                 isWorkoutActive = true
                 startElapsedTimeTimer()
+                playerViewModel.videoCompleted = false // Reset video state
             }
         }
     }

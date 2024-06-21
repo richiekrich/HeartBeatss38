@@ -28,11 +28,13 @@ class VideoSplashViewController: UIViewController {
         playerLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(playerLayer)
         player?.play()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnd), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
     }
 
-    @objc func videoDidEnd() {
+    @objc func videoDidEnd(notification: Notification) {
+        player?.seek(to: .zero)
+        player?.play()
         completionHandler?()
     }
 }
-
