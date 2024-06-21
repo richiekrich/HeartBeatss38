@@ -21,14 +21,7 @@ struct SavedWorkouts: View {
                     }
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
-                            viewModel.deleteWorkout(workout) { result in
-                                switch result {
-                                case .success:
-                                    print("Workout deleted successfully")
-                                case .failure(let error):
-                                    print("Error deleting workout: \(error.localizedDescription)")
-                                }
-                            }
+                            deleteWorkout(workout)
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }
@@ -38,8 +31,6 @@ struct SavedWorkouts: View {
                             workoutToEdit = workout
                         } label: {
                             Label("Edit", systemImage: "pencil")
-                                .labelStyle(.iconOnly)
-                                .foregroundColor(.blue)
                         }
                     }
                 }
@@ -52,11 +43,11 @@ struct SavedWorkouts: View {
                     Image(systemName: "plus")
                 }
             )
-            .sheet(item: $workoutToEdit) { workout in
-                EditWorkoutView(viewModel: viewModel, workout: workout)
-            }
             .sheet(isPresented: $showingAddWorkout) {
                 AddWorkoutView(viewModel: viewModel)
+            }
+            .sheet(item: $workoutToEdit) { workout in
+                EditWorkoutView(viewModel: viewModel, workout: workout)
             }
             .onAppear {
                 viewModel.loadWorkouts()
@@ -64,16 +55,16 @@ struct SavedWorkouts: View {
         }
     }
 
-    func deleteWorkout(at offsets: IndexSet) {
-        offsets.forEach { index in
-            let workout = viewModel.workouts[index]
-            viewModel.deleteWorkout(workout) { result in
-                switch result {
-                case .success:
-                    print("Workout deleted successfully")
-                case .failure(let error):
-                    print("Error deleting workout: \(error.localizedDescription)")
+    private func deleteWorkout(_ workout: Workout) {
+        viewModel.deleteWorkout(workout) { result in
+            switch result {
+            case .success:
+                // Remove the workout locally if deletion is successful
+                if let index = viewModel.workouts.firstIndex(where: { $0.id == workout.id }) {
+                    viewModel.workouts.remove(at: index)
                 }
+            case .failure(let error):
+                print("Error deleting workout: \(error.localizedDescription)")
             }
         }
     }

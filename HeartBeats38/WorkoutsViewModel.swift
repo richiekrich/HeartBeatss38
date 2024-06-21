@@ -44,8 +44,8 @@ class WorkoutsViewModel: ObservableObject {
                 case .failure(let error):
                     completion(.failure(error))
                 case .finished:
-                    completion(.success(()))
                     self.workouts.append(workout)
+                    completion(.success(()))
                 }
             }, receiveValue: { })
             .store(in: &cancellables)
@@ -61,9 +61,6 @@ class WorkoutsViewModel: ObservableObject {
                 case .failure(let error):
                     completion(.failure(error))
                 case .finished:
-                    if let index = self.workouts.firstIndex(where: { $0.id == workout.id }) {
-                        self.workouts.remove(at: index)
-                    }
                     completion(.success(()))
                 }
             }, receiveValue: { })

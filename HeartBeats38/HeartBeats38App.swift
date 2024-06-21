@@ -16,22 +16,30 @@ struct HeartBeats38App: App {
     
     @StateObject private var playerViewModel = PlayerViewModel()
     @State private var sharedModelContainer: ModelContainer?
+    @State private var isFirebaseConfigured = false
 
     var body: some Scene {
         WindowGroup {
-            if let sharedModelContainer = sharedModelContainer {
-                if playerViewModel.videoCompleted {
-                    HomeView()
-                        .modelContainer(sharedModelContainer)
+            if isFirebaseConfigured {
+                if let sharedModelContainer = sharedModelContainer {
+                    if playerViewModel.videoCompleted {
+                        HomeView()
+                            .modelContainer(sharedModelContainer)
+                    } else {
+                        VideoPlayerView()
+                            .environmentObject(playerViewModel)
+                            .modelContainer(sharedModelContainer)
+                    }
                 } else {
-                    VideoPlayerView()
-                        .environmentObject(playerViewModel)
-                        .modelContainer(sharedModelContainer)
+                    SplashScreen()
+                        .onAppear {
+                            loadModelContainer()
+                        }
                 }
             } else {
-                Text("Loading...")
+                SplashScreen()
                     .onAppear {
-                        loadModelContainer()
+                        configureFirebase()
                     }
             }
         }
@@ -53,14 +61,20 @@ struct HeartBeats38App: App {
             }
         }
     }
+
+    private func configureFirebase() {
+        DispatchQueue.global(qos: .background).async {
+            FirebaseApp.configure()
+            print("Firebase configured successfully")
+            DispatchQueue.main.async {
+                isFirebaseConfigured = true
+            }
+        }
+    }
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        DispatchQueue.global(qos: .background).async {
-            FirebaseApp.configure()
-            print("Firebase configured successfully")
-        }
         return true
     }
 }
