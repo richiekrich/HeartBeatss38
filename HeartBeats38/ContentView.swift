@@ -74,6 +74,9 @@ struct ContentView: View {
                                 .cornerRadius(10)
                         }
                         .padding()
+                        .alert(isPresented: $showAlert) {
+                            Alert(title: Text("Workout Saved!"), message: Text("Your workout has been saved successfully."), dismissButton: .default(Text("OK")))
+                        }
                     }
                 } else {
                     Button(action: stopWorkout) {
@@ -95,9 +98,6 @@ struct ContentView: View {
         }
         .onChange(of: heartRateViewModel.heartRate) { oldRate, newRate in
             audioPlayerManager.adjustPlaybackRate(basedOnHeartRate: newRate)
-        }
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text("Workout Saved!"), message: Text("Your workout has been saved successfully."), dismissButton: .default(Text("OK")))
         }
     }
 
@@ -164,11 +164,12 @@ struct ContentView: View {
     }
 
     func saveWorkout() {
+        let avgHeartRate = heartRateViewModel.calculateAverageHeartRate()
         let workout = Workout(
             name: "Workout \(Date())",
             duration: "\(elapsedTime) seconds",
             date: Date(),
-            avgHeartBeat: Int(heartRateViewModel.heartRate)
+            avgHeartBeat: Int(avgHeartRate)
         )
         
         workoutsViewModel.addWorkout(workout) { result in
