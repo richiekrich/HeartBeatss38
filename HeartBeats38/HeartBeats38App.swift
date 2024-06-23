@@ -18,7 +18,7 @@ struct HeartBeats38App: App {
                         .environmentObject(workoutsViewModel)
                         .modelContainer(sharedModelContainer)
                 } else {
-                    VideoPlayerView()
+                    VideoPlayerView(videoFileName: "heartbeats", videoFileType: "mp4")
                         .environmentObject(playerViewModel)
                         .modelContainer(sharedModelContainer)
                 }

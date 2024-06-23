@@ -18,8 +18,12 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            if isWorkoutActive && !playerViewModel.videoCompleted {
-                VideoPlayerView()
+            if isWorkoutActive {
+                VideoPlayerView(videoFileName: "heartbeats", videoFileType: "mp4")
+                    .ignoresSafeArea()
+                    .environmentObject(playerViewModel)
+            } else {
+                VideoPlayerView(videoFileName: "heartsplash", videoFileType: "mp4")
                     .ignoresSafeArea()
                     .environmentObject(playerViewModel)
             }

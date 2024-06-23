@@ -1,25 +1,22 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var isPulsing = false
     @StateObject private var audioPlayerManager = AudioPlayerManager()
 
     var body: some View {
-        ZStack {
-            Color.white.edgesIgnoringSafeArea(.all)
-            NavigationView {
-                VStack {
+        NavigationView {
+            ZStack {
+                GeometryReader { geometry in
                     Image("hearthome")
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 400, height: 400)
-                        .padding(.bottom, 10)
-                        .opacity(isPulsing ? 1.0 : 0.3)
-                        .onAppear {
-                            withAnimation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)) {
-                                isPulsing.toggle()
-                            }
-                        }
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .clipped()
+                        .edgesIgnoringSafeArea(.all)
+                }
+
+                VStack {
+                    Spacer()
 
                     NavigationLink(destination: ContentView(audioPlayerManager: audioPlayerManager)) {
                         Text("Start Workout")
@@ -47,10 +44,13 @@ struct HomeView: View {
                             .cornerRadius(10)
                     }
                     .padding()
+
+                    Spacer()
                 }
                 .navigationBarTitle("Welcome to HeartBeats!", displayMode: .inline)
-                .background(Color.white)
+                .background(Color.clear) // Ensure VStack background is clear to show the image
             }
+            .navigationBarHidden(true) // Hide navigation bar to prevent white space at top
         }
     }
 }

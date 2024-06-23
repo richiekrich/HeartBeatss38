@@ -1,10 +1,3 @@
-//
-//  VideoSplashViewController.swift
-//  HeartBeats38
-//
-//  Created by Ernesto Diaz on 4/18/24.
-//
-
 import AVFoundation
 import UIKit
 
@@ -14,11 +7,10 @@ class VideoSplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupVideoPlayer()
     }
 
-    private func setupVideoPlayer() {
-        guard let path = Bundle.main.path(forResource: "heartsplash", ofType: "mp4") else {
+    func setupVideoPlayer(with fileName: String, fileType: String) {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: fileType) else {
             return
         }
         let url = URL(fileURLWithPath: path)
