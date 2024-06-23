@@ -11,34 +11,37 @@ struct HomeView: View {
                     .scaledToFill()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .edgesIgnoringSafeArea(.all)
-                    .offset(x: -20) // Adjust the x offset as needed to move the image to the left
+                    .offset(x: -25) // Adjust the x offset as needed to move the image to the left
 
                 VStack {
                     Spacer()
 
+                    // Add padding or spacer above the VStack to lower the buttons
+                    Spacer()
+
                     NavigationLink(destination: ContentView(audioPlayerManager: audioPlayerManager)) {
                         Text("Start Workout")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .padding()
-                            .background(Color.white.opacity(0.3)) // More translucent white background
+                            .background(Color.black.opacity(0.1)) // More translucent white background
                             .cornerRadius(10)
                     }
                     .padding()
 
                     NavigationLink(destination: SavedWorkouts()) {
                         Text("My Workouts")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .padding()
-                            .background(Color.white.opacity(0.3)) // More translucent white background
+                            .background(Color.black.opacity(0.1)) // More translucent white background
                             .cornerRadius(10)
                     }
                     .padding()
 
                     NavigationLink(destination: AudioFilesView(audioPlayerManager: audioPlayerManager)) {
                         Text("My Tracks")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .padding()
-                            .background(Color.white.opacity(0.3)) // More translucent white background
+                            .background(Color.black.opacity(0.1)) // More translucent white background
                             .cornerRadius(10)
                     }
                     .padding()
@@ -47,12 +50,9 @@ struct HomeView: View {
                 }
                 .navigationBarTitle("Welcome to HeartBeats!", displayMode: .inline)
                 .background(Color.clear) // Ensure VStack background is clear to show the image
+                .padding(.top, 400) // Adjust the top padding to lower the VStack
             }
             .navigationBarHidden(true) // Hide navigation bar to prevent white space at top
         }
     }
-}
-
-#Preview {
-    HomeView()
 }

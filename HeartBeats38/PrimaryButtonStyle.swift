@@ -14,7 +14,7 @@ struct PrimaryButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .foregroundColor(isDisabled ? backgroundColor : textColor)
+            .foregroundColor(isDisabled ? .gray : textColor)
             .padding()
             .background(backgroundColor)
             .cornerRadius(8)

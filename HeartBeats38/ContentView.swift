@@ -31,32 +31,36 @@ struct ContentView: View {
             VStack {
                 if let currentFileName = audioPlayerManager.currentFileName {
                     Text("Now Playing: \(currentFileName)")
-                        .font(.headline)
+                        .font(.system(size: 18, weight: .semibold, design: .rounded))
                         .padding()
                 } else {
                     Text("No Track Selected")
-                        .font(.headline)
+                        .font(.system(size: 18, weight: .semibold, design: .rounded))
                         .padding()
                 }
 
                 Text("Elapsed Workout Time: \(elapsedTime) seconds")
+                    .font(.system(size: 16, weight: .medium, design: .default))
                     .foregroundColor(.black)
                     .padding()
 
                 Text("Heart Rate: \(heartRateViewModel.heartRate, specifier: "%.1f") BPM")
+                    .font(.system(size: 16, weight: .medium, design: .default))
                     .foregroundColor(.black)
 
                 Text("Playback Rate: \(audioPlayerManager.audioPlayer?.rate ?? 1.0, specifier: "%.2f")x")
+                    .font(.system(size: 16, weight: .medium, design: .default))
                     .foregroundColor(.black)
 
                 Text(statusMessage)
+                    .font(.system(size: 14, weight: .regular, design: .default))
                     .foregroundColor(.black)
                     .padding()
 
                 if showCountdown {
                     Text("Workout starting in... \(countdown)")
+                        .font(.system(size: 24, weight: .bold, design: .rounded))
                         .foregroundColor(.black)
-                        .font(.title)
                         .transition(.scale)
                 }
 
@@ -73,6 +77,7 @@ struct ContentView: View {
                         Button(action: saveWorkout) {
                             Text("Save Workout")
                                 .foregroundColor(.white)
+                                .font(.system(size: 16, weight: .bold, design: .rounded))
                                 .padding()
                                 .background(Color.green)
                                 .cornerRadius(10)
@@ -95,8 +100,11 @@ struct ContentView: View {
                             .scaledToFit()
                             .frame(width: 100, height: 100)
                     }
-                    Button("Resume Workout", action: resumeWorkout)
-                        .buttonStyle(PrimaryButtonStyle(isDisabled: !heartRateViewModel.isWorkoutActive, backgroundColor: .green, textColor: .white))
+                    // Show "Resume Workout" button only if the workout is paused (isWorkoutActive is false)
+                    if !heartRateViewModel.isWorkoutActive {
+                        Button("Resume Workout", action: resumeWorkout)
+                            .buttonStyle(PrimaryButtonStyle(isDisabled: false, backgroundColor: .green, textColor: .white))
+                    }
                 }
             }
         }
