@@ -20,6 +20,7 @@
 		13E40F202C27B079002D4A11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E40F1F2C27B079002D4A11 /* AppDelegate.swift */; };
 		13E40F222C27B197002D4A11 /* FireStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E40F212C27B197002D4A11 /* FireStoreServiceProtocol.swift */; };
 		13E40F362C287F0E002D4A11 /* heartbeats.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 13E40F352C287F0E002D4A11 /* heartbeats.mp4 */; };
+		13E40F442C28BADB002D4A11 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E40F432C28BADB002D4A11 /* BackgroundView.swift */; };
 		13E8F9902C24F538006B6869 /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8F98F2C24F538006B6869 /* EditWorkoutView.swift */; };
 		13E8F9922C254260006B6869 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8F9912C254260006B6869 /* SplashScreen.swift */; };
 		167BD6492BD1AA420056A974 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6482BD1AA420056A974 /* HomeView.swift */; };
@@ -84,6 +85,7 @@
 		13E40F1F2C27B079002D4A11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13E40F212C27B197002D4A11 /* FireStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreServiceProtocol.swift; sourceTree = "<group>"; };
 		13E40F352C287F0E002D4A11 /* heartbeats.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = heartbeats.mp4; sourceTree = "<group>"; };
+		13E40F432C28BADB002D4A11 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		13E8F98F2C24F538006B6869 /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
 		13E8F9912C254260006B6869 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		167BD6482BD1AA420056A974 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				13E40F1F2C27B079002D4A11 /* AppDelegate.swift */,
 				E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */,
 				167BD6482BD1AA420056A974 /* HomeView.swift */,
+				13E40F432C28BADB002D4A11 /* BackgroundView.swift */,
 				E0FF491C2BBF4C1200B0F470 /* ContentView.swift */,
 				167BD6602BD1C0630056A974 /* AudioFilesView.swift */,
 				167BD64E2BD1AFAD0056A974 /* VideoSplashViewController.swift */,
@@ -382,6 +385,7 @@
 				130705562C2360BD005FAEBD /* AudioPlayerView.swift in Sources */,
 				167BD6592BD1B8E20056A974 /* WorkoutsViewModel.swift in Sources */,
 				1325EECF2C23DBB900A58F0B /* FirestoreService.swift in Sources */,
+				13E40F442C28BADB002D4A11 /* BackgroundView.swift in Sources */,
 				167BD6492BD1AA420056A974 /* HomeView.swift in Sources */,
 				E0FF491B2BBF4C1200B0F470 /* HeartBeats38App.swift in Sources */,
 				E0FF497D2BBF4D7F00B0F470 /* HeartRateViewModel.swift in Sources */,

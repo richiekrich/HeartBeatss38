@@ -6,41 +6,39 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                GeometryReader { geometry in
-                    Image("hearthome")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: geometry.size.width, height: geometry.size.height)
-                        .clipped()
-                        .edgesIgnoringSafeArea(.all)
-                }
+                Image("hearthome")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .edgesIgnoringSafeArea(.all)
+                    .offset(x: -20) // Adjust the x offset as needed to move the image to the left
 
                 VStack {
                     Spacer()
 
                     NavigationLink(destination: ContentView(audioPlayerManager: audioPlayerManager)) {
                         Text("Start Workout")
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                             .padding()
-                            .background(Color.red)
+                            .background(Color.white.opacity(0.3)) // More translucent white background
                             .cornerRadius(10)
                     }
                     .padding()
 
                     NavigationLink(destination: SavedWorkouts()) {
                         Text("My Workouts")
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                             .padding()
-                            .background(Color.red)
+                            .background(Color.white.opacity(0.3)) // More translucent white background
                             .cornerRadius(10)
                     }
                     .padding()
 
                     NavigationLink(destination: AudioFilesView(audioPlayerManager: audioPlayerManager)) {
                         Text("My Tracks")
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                             .padding()
-                            .background(Color.red)
+                            .background(Color.white.opacity(0.3)) // More translucent white background
                             .cornerRadius(10)
                     }
                     .padding()
