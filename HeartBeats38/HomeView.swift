@@ -23,7 +23,7 @@ struct HomeView: View {
                         Text("Start Workout")
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color.black.opacity(0.1)) // More translucent white background
+                            .background(Color.black.opacity(0.7)) // More translucent white background
                             .cornerRadius(10)
                     }
                     .padding()
@@ -32,7 +32,7 @@ struct HomeView: View {
                         Text("My Workouts")
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color.black.opacity(0.1)) // More translucent white background
+                            .background(Color.black.opacity(0.7)) // More translucent white background
                             .cornerRadius(10)
                     }
                     .padding()
@@ -41,7 +41,7 @@ struct HomeView: View {
                         Text("My Tracks")
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color.black.opacity(0.1)) // More translucent white background
+                            .background(Color.black.opacity(0.7)) // More translucent white background
                             .cornerRadius(10)
                     }
                     .padding()
