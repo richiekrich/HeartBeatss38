@@ -1,15 +1,8 @@
-//
-//  FirestoreService.swift
-//  HeartBeats38
-//
-//  Created by Richard Rich on 6/19/24.
-//
-
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import Combine
 
-class FirestoreService {
+class FirestoreService: FirestoreServiceProtocol {
     private let db = Firestore.firestore()
     private let collection = "workouts"
 
@@ -63,7 +56,7 @@ class FirestoreService {
         }
         .eraseToAnyPublisher()
     }
-    
+
     func updateWorkout(_ workout: Workout) -> AnyPublisher<Void, Error> {
         guard let id = workout.id else {
             return Fail(error: NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "Workout ID is missing."]))

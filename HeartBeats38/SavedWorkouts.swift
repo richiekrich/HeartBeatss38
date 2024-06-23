@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SavedWorkouts: View {
-    @ObservedObject var viewModel = WorkoutsViewModel()
+    @StateObject var viewModel = WorkoutsViewModel()
     @State private var showingAddWorkout = false
     @State private var workoutToEdit: Workout?
 
@@ -21,7 +21,7 @@ struct SavedWorkouts: View {
                     }
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
-                            deleteWorkout(workout)
+                            deleteWorkout(workout: workout)
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }
@@ -55,7 +55,7 @@ struct SavedWorkouts: View {
         }
     }
 
-    private func deleteWorkout(_ workout: Workout) {
+    private func deleteWorkout(workout: Workout) {
         viewModel.deleteWorkout(workout) { result in
             switch result {
             case .success:

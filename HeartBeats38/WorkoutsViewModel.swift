@@ -1,15 +1,16 @@
-import SwiftUI
 import Combine
+import SwiftUI
 
 class WorkoutsViewModel: ObservableObject {
     @Published var workouts: [Workout] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
 
-    private var firestoreService = FirestoreService()
+    private var firestoreService: FirestoreServiceProtocol
     private var cancellables = Set<AnyCancellable>()
 
-    init() {
+    init(firestoreService: FirestoreServiceProtocol = FirestoreService()) {
+        self.firestoreService = firestoreService
         loadWorkouts()
     }
 
@@ -47,7 +48,6 @@ class WorkoutsViewModel: ObservableObject {
                     completion(.success(()))
                 }
             }, receiveValue: { [weak self] in
-                // Ensure the workout is appended correctly
                 self?.workouts.append(workout)
                 self?.loadWorkouts() // Refresh the list from Firestore
             })
@@ -64,7 +64,6 @@ class WorkoutsViewModel: ObservableObject {
                 case .failure(let error):
                     completion(.failure(error))
                 case .finished:
-                    self.objectWillChange.send() // Force view update
                     if let index = self.workouts.firstIndex(where: { $0.id == workout.id }) {
                         self.workouts.remove(at: index)
                     }
@@ -92,7 +91,6 @@ class WorkoutsViewModel: ObservableObject {
                     if let index = self.workouts.firstIndex(where: { $0.id == id }) {
                         self.workouts[index] = workout
                     }
-                    self.objectWillChange.send() // Force view update
                     completion(.success(()))
                 }
             }, receiveValue: { })

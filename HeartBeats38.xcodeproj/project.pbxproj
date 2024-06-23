@@ -13,12 +13,13 @@
 		130705542C22AC0D005FAEBD /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 130705532C22AC0D005FAEBD /* FirebaseStorage */; };
 		130705562C2360BD005FAEBD /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130705552C2360BD005FAEBD /* AudioPlayerView.swift */; };
 		130705582C237D1E005FAEBD /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130705572C237D1E005FAEBD /* DocumentPicker.swift */; };
-		1325EECB2C2398D700A58F0B /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1325EECA2C2398D700A58F0B /* WorkoutView.swift */; };
 		1325EECD2C23998C00A58F0B /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1325EECC2C23998C00A58F0B /* PrimaryButtonStyle.swift */; };
 		1325EECF2C23DBB900A58F0B /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1325EECE2C23DBB900A58F0B /* FirestoreService.swift */; };
 		1325EED12C23DC1700A58F0B /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1325EED02C23DC1700A58F0B /* AddWorkoutView.swift */; };
 		137996142C2613DB004D0E05 /* HeartBeats.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 137996132C2613DB004D0E05 /* HeartBeats.mp4 */; };
 		137996162C26146F004D0E05 /* heartsplash.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 137996152C26146F004D0E05 /* heartsplash.mp4 */; };
+		13E40F202C27B079002D4A11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E40F1F2C27B079002D4A11 /* AppDelegate.swift */; };
+		13E40F222C27B197002D4A11 /* FireStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E40F212C27B197002D4A11 /* FireStoreServiceProtocol.swift */; };
 		13E8F9902C24F538006B6869 /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8F98F2C24F538006B6869 /* EditWorkoutView.swift */; };
 		13E8F9922C254260006B6869 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8F9912C254260006B6869 /* SplashScreen.swift */; };
 		167BD6492BD1AA420056A974 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BD6482BD1AA420056A974 /* HomeView.swift */; };
@@ -76,12 +77,13 @@
 		1307054C2C22A5A3005FAEBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		130705552C2360BD005FAEBD /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		130705572C237D1E005FAEBD /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
-		1325EECA2C2398D700A58F0B /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		1325EECC2C23998C00A58F0B /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		1325EECE2C23DBB900A58F0B /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		1325EED02C23DC1700A58F0B /* AddWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
 		137996132C2613DB004D0E05 /* HeartBeats.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = HeartBeats.mp4; sourceTree = "<group>"; };
 		137996152C26146F004D0E05 /* heartsplash.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = heartsplash.mp4; sourceTree = "<group>"; };
+		13E40F1F2C27B079002D4A11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		13E40F212C27B197002D4A11 /* FireStoreServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreServiceProtocol.swift; sourceTree = "<group>"; };
 		13E8F98F2C24F538006B6869 /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
 		13E8F9912C254260006B6869 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		167BD6482BD1AA420056A974 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -166,7 +168,9 @@
 				1307054C2C22A5A3005FAEBD /* GoogleService-Info.plist */,
 				E00D7B4B2BCD391D0027318C /* Info.plist */,
 				E0FF49462BBF4CC000B0F470 /* HeartBeats38.entitlements */,
+				13E40F212C27B197002D4A11 /* FireStoreServiceProtocol.swift */,
 				1325EECE2C23DBB900A58F0B /* FirestoreService.swift */,
+				13E40F1F2C27B079002D4A11 /* AppDelegate.swift */,
 				E0FF491A2BBF4C1200B0F470 /* HeartBeats38App.swift */,
 				167BD6482BD1AA420056A974 /* HomeView.swift */,
 				E0FF491C2BBF4C1200B0F470 /* ContentView.swift */,
@@ -174,14 +178,13 @@
 				40A4B91C2BBF6384000E1B85 /* AudioPlayerManager.swift */,
 				130705552C2360BD005FAEBD /* AudioPlayerView.swift */,
 				167BD65E2BD1C0420056A974 /* AudioFileManager.swift */,
-				1325EECA2C2398D700A58F0B /* WorkoutView.swift */,
+				167BD6582BD1B8E20056A974 /* WorkoutsViewModel.swift */,
 				130705572C237D1E005FAEBD /* DocumentPicker.swift */,
 				167BD6602BD1C0630056A974 /* AudioFilesView.swift */,
 				167BD6522BD1B3990056A974 /* PlayerViewModel.swift */,
-				E0FF491E2BBF4C1200B0F470 /* Item.swift */,
 				167BD64E2BD1AFAD0056A974 /* VideoSplashViewController.swift */,
 				167BD6502BD1B2920056A974 /* VideoPlayerView.swift */,
-				167BD6582BD1B8E20056A974 /* WorkoutsViewModel.swift */,
+				E0FF491E2BBF4C1200B0F470 /* Item.swift */,
 				167BD6562BD1B8B70056A974 /* Workout.swift */,
 				1325EED02C23DC1700A58F0B /* AddWorkoutView.swift */,
 				167BD64A2BD1AEF10056A974 /* SavedWorkouts.swift */,
@@ -373,7 +376,6 @@
 				167BD64F2BD1AFAD0056A974 /* VideoSplashViewController.swift in Sources */,
 				E0FF491F2BBF4C1200B0F470 /* Item.swift in Sources */,
 				167BD65F2BD1C0420056A974 /* AudioFileManager.swift in Sources */,
-				1325EECB2C2398D700A58F0B /* WorkoutView.swift in Sources */,
 				167BD6572BD1B8B70056A974 /* Workout.swift in Sources */,
 				167BD6512BD1B2920056A974 /* VideoPlayerView.swift in Sources */,
 				13E8F9902C24F538006B6869 /* EditWorkoutView.swift in Sources */,
@@ -383,6 +385,8 @@
 				167BD6492BD1AA420056A974 /* HomeView.swift in Sources */,
 				E0FF491B2BBF4C1200B0F470 /* HeartBeats38App.swift in Sources */,
 				E0FF497D2BBF4D7F00B0F470 /* HeartRateViewModel.swift in Sources */,
+				13E40F202C27B079002D4A11 /* AppDelegate.swift in Sources */,
+				13E40F222C27B197002D4A11 /* FireStoreServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

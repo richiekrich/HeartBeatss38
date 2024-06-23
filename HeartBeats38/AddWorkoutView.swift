@@ -28,7 +28,7 @@ struct AddWorkoutView: View {
                     TextField("Avg Heartbeat", text: $avgHeartBeat)
                         .keyboardType(.numberPad)
                 }
-                
+
                 Button(action: saveWorkout) {
                     if isSaving {
                         ProgressView()
@@ -55,12 +55,10 @@ struct AddWorkoutView: View {
             showAlert = true
             return
         }
-        
-        print("Saving workout: \(name), \(duration), \(date), \(avgHeartBeatInt)")
-        
+
         let newWorkout = Workout(name: name, duration: duration, date: date, avgHeartBeat: avgHeartBeatInt)
         isSaving = true
-        
+
         viewModel.addWorkout(newWorkout) { result in
             isSaving = false
             switch result {

@@ -2,7 +2,8 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var audioPlayerManager: AudioPlayerManager
-    @StateObject private var viewModel = HeartRateViewModel()
+    @StateObject private var heartRateViewModel = HeartRateViewModel()
+    @StateObject private var workoutsViewModel = WorkoutsViewModel(firestoreService: FirestoreService())
     @State private var statusMessage = ""
     @State private var isWorkoutActive = false
     @State private var isAudioPlaying = false
@@ -12,6 +13,8 @@ struct ContentView: View {
     @State private var elapsedTime = 0
     @State private var elapsedTimeTimer: Timer?
     @StateObject private var playerViewModel = PlayerViewModel()
+    @State private var showSaveButton = false
+    @State private var showAlert = false
 
     var body: some View {
         ZStack {
@@ -36,7 +39,7 @@ struct ContentView: View {
                     .foregroundColor(.black)
                     .padding()
 
-                Text("Heart Rate: \(viewModel.heartRate, specifier: "%.1f") BPM")
+                Text("Heart Rate: \(heartRateViewModel.heartRate, specifier: "%.1f") BPM")
                     .foregroundColor(.black)
 
                 Text("Playback Rate: \(audioPlayerManager.audioPlayer?.rate ?? 1.0, specifier: "%.2f")x")
@@ -61,6 +64,17 @@ struct ContentView: View {
                             .frame(width: 100, height: 100)
                             .opacity(buttonOpacity)
                     }
+
+                    if showSaveButton {
+                        Button(action: saveWorkout) {
+                            Text("Save Workout")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.green)
+                                .cornerRadius(10)
+                        }
+                        .padding()
+                    }
                 } else {
                     Button(action: stopWorkout) {
                         Image(systemName: "stop.circle.fill")
@@ -75,12 +89,15 @@ struct ContentView: View {
                             .frame(width: 100, height: 100)
                     }
                     Button("Resume Workout", action: resumeWorkout)
-                        .buttonStyle(PrimaryButtonStyle(isDisabled: !viewModel.isWorkoutActive, backgroundColor: .green, textColor: .white))
+                        .buttonStyle(PrimaryButtonStyle(isDisabled: !heartRateViewModel.isWorkoutActive, backgroundColor: .green, textColor: .white))
                 }
             }
         }
-        .onChange(of: viewModel.heartRate) { oldRate, newRate in
+        .onChange(of: heartRateViewModel.heartRate) { oldRate, newRate in
             audioPlayerManager.adjustPlaybackRate(basedOnHeartRate: newRate)
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Workout Saved!"), message: Text("Your workout has been saved successfully."), dismissButton: .default(Text("OK")))
         }
     }
 
@@ -100,7 +117,7 @@ struct ContentView: View {
             } else {
                 timer.invalidate()
                 showCountdown = false
-                viewModel.startHeartRateSimulation()
+                heartRateViewModel.startHeartRateSimulation()
                 statusMessage = "Workout started."
                 if let audioPlayer = audioPlayerManager.audioPlayer, audioPlayer.url != nil {
                     audioPlayerManager.play()
@@ -124,25 +141,46 @@ struct ContentView: View {
     }
 
     func resumeWorkout() {
-        viewModel.startHeartRateSimulation()
+        heartRateViewModel.startHeartRateSimulation()
         startElapsedTimeTimer()
         statusMessage = "Workout resumed."
         isWorkoutActive = true
     }
 
     func pauseWorkout() {
-        viewModel.pauseWorkout()
+        heartRateViewModel.pauseWorkout()
         statusMessage = "Workout paused."
         stopElapsedTimeTimer()
     }
 
     func stopWorkout() {
-        viewModel.stopHeartRateSimulation()
+        heartRateViewModel.stopHeartRateSimulation()
         statusMessage = "Workout stopped."
         audioPlayerManager.stop()
         isWorkoutActive = false
         isAudioPlaying = false
         stopElapsedTimeTimer()
+        showSaveButton = true
+    }
+
+    func saveWorkout() {
+        let workout = Workout(
+            name: "Workout \(Date())",
+            duration: "\(elapsedTime) seconds",
+            date: Date(),
+            avgHeartBeat: Int(heartRateViewModel.heartRate)
+        )
+        
+        workoutsViewModel.addWorkout(workout) { result in
+            switch result {
+            case .success:
+                print("Workout saved successfully!")
+                showSaveButton = false
+                showAlert = true
+            case .failure(let error):
+                print("Failed to save workout: \(error.localizedDescription)")
+            }
+        }
     }
 
     func startElapsedTimeTimer() {
